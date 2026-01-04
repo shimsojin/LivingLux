@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { initializeApp } from 'firebase/app';
-import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from 'firebase/auth';
-import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from 'firebase/firestore';
+import { signInAnonymously, onAuthStateChanged, signInWithCustomToken } from 'firebase/auth';
+import { collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from 'firebase/firestore';
+import initFirebase from './firebase';
 import { 
   Home, MapPin, Bed, Bath, Trees, Calendar, Send, 
   CheckCircle, Briefcase, User, Mail, Phone, Shield, 
@@ -42,12 +42,11 @@ const getAvailabilitySummary = (rooms) => {
   };
 };
 
-// --- Firebase Configuration & Initialization ---
-const firebaseConfig = JSON.parse(__firebase_config);
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+// --- Firebase Initialization (standard Vite env) ---
+const firebase = initFirebase();
+const auth = firebase ? firebase.auth : null;
+const db = firebase ? firebase.db : null;
+const appId = import.meta.env.VITE_APP_ID || 'default-app-id';
 
 // --- Mock Data for Properties ---
 const PROPERTIES = [
@@ -442,6 +441,10 @@ const AdminDashboard = ({ user, onClose }) => {
 
   useEffect(() => {
     if (!user) return;
+    if (!db) {
+      setLoading(false);
+      return;
+    }
     const q = collection(db, 'artifacts', appId, 'public', 'data', 'applications');
     // Using simple query without complex ordering to avoid index requirements
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -534,6 +537,7 @@ const ApplicationModal = ({ property, room, onClose, onSuccess }) => {
     e.preventDefault();
     setSubmitting(true);
     try {
+      if (!db) throw new Error('Firestore not configured');
       await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'applications'), {
         ...formData,
         propertyName: property.title,
@@ -782,13 +786,23 @@ export default function App() {
   const [lightbox, setLightbox] = useState({ isOpen: false, images: [], index: 0 });
 
   useEffect(() => {
+    if (!auth) {
+      console.warn('Firebase auth not initialized; skipping auth setup.');
+      return;
+    }
+
     const initAuth = async () => {
-      if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-        await signInWithCustomToken(auth, __initial_auth_token);
-      } else {
-        await signInAnonymously(auth);
+      try {
+        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+          await signInWithCustomToken(auth, __initial_auth_token);
+        } else {
+          await signInAnonymously(auth);
+        }
+      } catch (e) {
+        console.warn('Auth initialization failed:', e);
       }
     };
+
     initAuth();
     const unsubscribe = onAuthStateChanged(auth, setUser);
     return () => unsubscribe();
