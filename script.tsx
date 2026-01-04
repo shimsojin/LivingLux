@@ -59,13 +59,13 @@ const PROPERTIES = [
     tags: ['High-end', 'Private Garden', 'Peaceful'],
     description: 'A luxurious apartment perfect for those seeking nature near the city. Features a stunning private garden and high-end finishes.',
     amenities: ['Private Garden', 'Large Balcony', 'High-end fully equipped Kitchen', 'Underground Parking'],
-    image: './assets/bertrange-apt-main.jpg',
+    image: '/images/bertrange-apt-main.jpg',
     images: [
-      './assets/bertrange-apt-main2.jpg', 
-      './assets/bertrange-apt-garden.jpeg', 
-      './assets/bertrange-apt-balcony.jpeg', 
-      './assets/bertrange-apt-corridor1.jpg',  
-      './assets/bertrange-apt-corridor2.jpg' 
+      '/images/bertrange-apt-main2.jpg', 
+      '/images/bertrange-apt-garden.jpeg', 
+      '/images/bertrange-apt-balcony.jpeg', 
+      '/images/bertrange-apt-corridor1.jpg',  
+      '/images/bertrange-apt-corridor2.jpg' 
     ],
     rooms: [
       { 
@@ -78,7 +78,7 @@ const PROPERTIES = [
         status: 'occupied', 
         features: 'Street view',
         images: [
-          './assets/bertrange-apt-room1.jpeg'
+          '/images/bertrange-apt-room1.jpeg'
         ]
       },
       { 
@@ -90,7 +90,7 @@ const PROPERTIES = [
         available: 'Indefinite', 
         status: 'occupied', 
         features: 'Street view',
-        images: ['./assets/bertrange-apt-room2.jpg']
+        images: ['/images/bertrange-apt-room2.jpg']
       },
       { 
         id: 'b-r3', 
@@ -101,7 +101,7 @@ const PROPERTIES = [
         available: 'Indefinite', 
         status: 'occupied', 
         features: 'Street view',
-        images: ['./assets/bertrange-apt-room3.jpg']
+        images: ['/images/bertrange-apt-room3.jpg']
       },
     ]
   },
@@ -164,12 +164,12 @@ const PROPERTIES = [
     tags: ['High-end', '3 Floors', 'Prestige'],
     description: 'An expansive 3-story high-end house offering the ultimate coliving experience. Generous common areas and premium privacy.',
     amenities: ['3 Floors', 'Grand Kitchen', 'Home Cinema', 'Gym Area', 'Wine Cellar', 'Weekly Maid'],
-    image: './assets/limpertsberg-house-main.jpg',
+    image: '/images/limpertsberg-house-main.jpg',
     images: [
-      './assets/limpertsberg-house-living.jpg', 
-      './assets/limpertsberg-house-bath1.jpg',
-      './assets/limpertsberg-house-bath2.jpg', 
-      './assets/limpertsberg-house-corridor2.jpg'
+      '/images/limpertsberg-house-living.jpg', 
+      '/images/limpertsberg-house-bath1.jpg',
+      '/images/limpertsberg-house-bath2.jpg', 
+      '/images/limpertsberg-house-corridor2.jpg'
     ],
     rooms: [
       { 
@@ -192,7 +192,7 @@ const PROPERTIES = [
         available: 'Indefinite', 
         status: 'occupied', 
         features: '1st floor',
-        images: ['./assets/limpertsberg-house-room11.jpg']
+        images: ['/images/limpertsberg-house-room11.jpg']
       },
       { 
         id: 'h-r3', 
@@ -847,7 +847,7 @@ export default function App() {
             onClick={() => setSelectedProperty(null)}
           >
             <img 
-              src="./assets/logo.png" 
+              src="/images/logo.png" 
               alt="LivingLux Logo" 
               className="h-10 w-10 object-cover rounded-lg"
             />
