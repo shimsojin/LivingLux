@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { initializeApp } from 'firebase/app';
-import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from 'firebase/auth';
-import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from 'firebase/firestore';
+import { signInAnonymously, onAuthStateChanged, signInWithCustomToken } from 'firebase/auth';
+import { collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from 'firebase/firestore';
+import initFirebase from './firebase';
 import { 
   Home, MapPin, Bed, Bath, Trees, Calendar, Send, 
   CheckCircle, Briefcase, User, Mail, Phone, Shield, 
@@ -42,12 +42,11 @@ const getAvailabilitySummary = (rooms) => {
   };
 };
 
-// --- Firebase Configuration & Initialization ---
-const firebaseConfig = JSON.parse(__firebase_config);
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+// --- Firebase Initialization (standard Vite env) ---
+const firebase = initFirebase();
+const auth = firebase ? firebase.auth : null;
+const db = firebase ? firebase.db : null;
+const appId = import.meta.env.VITE_APP_ID || 'default-app-id';
 
 // --- Mock Data for Properties ---
 const PROPERTIES = [
@@ -59,13 +58,13 @@ const PROPERTIES = [
     tags: ['High-end', 'Private Garden', 'Peaceful'],
     description: 'A luxurious apartment perfect for those seeking nature near the city. Features a stunning private garden and high-end finishes.',
     amenities: ['Private Garden', 'Large Balcony', 'High-end fully equipped Kitchen', 'Underground Parking'],
-    image: './assets/bertrange-apt-main.jpg',
+    image: '/images/bertrange-apt-main.jpg',
     images: [
-      './assets/bertrange-apt-main2.jpg', 
-      './assets/bertrange-apt-garden.jpeg', 
-      './assets/bertrange-apt-balcony.jpeg', 
-      './assets/bertrange-apt-corridor1.jpg',  
-      './assets/bertrange-apt-corridor2.jpg' 
+      '/images/bertrange-apt-main2.jpg', 
+      '/images/bertrange-apt-garden.jpeg', 
+      '/images/bertrange-apt-balcony.jpeg', 
+      '/images/bertrange-apt-corridor1.jpg',  
+      '/images/bertrange-apt-corridor2.jpg' 
     ],
     rooms: [
       { 
@@ -78,7 +77,7 @@ const PROPERTIES = [
         status: 'occupied', 
         features: 'Street view',
         images: [
-          './assets/bertrange-apt-room1.jpeg'
+          '/images/bertrange-apt-room1.jpeg'
         ]
       },
       { 
@@ -90,7 +89,7 @@ const PROPERTIES = [
         available: 'Indefinite', 
         status: 'occupied', 
         features: 'Street view',
-        images: ['./assets/bertrange-apt-room2.jpg']
+        images: ['/images/bertrange-apt-room2.jpg']
       },
       { 
         id: 'b-r3', 
@@ -101,7 +100,7 @@ const PROPERTIES = [
         available: 'Indefinite', 
         status: 'occupied', 
         features: 'Street view',
-        images: ['./assets/bertrange-apt-room3.jpg']
+        images: ['/images/bertrange-apt-room3.jpg']
       },
     ]
   },
@@ -164,12 +163,12 @@ const PROPERTIES = [
     tags: ['High-end', '3 Floors', 'Prestige'],
     description: 'An expansive 3-story high-end house offering the ultimate coliving experience. Generous common areas and premium privacy.',
     amenities: ['3 Floors', 'Grand Kitchen', 'Home Cinema', 'Gym Area', 'Wine Cellar', 'Weekly Maid'],
-    image: './assets/limpertsberg-house-main.jpg',
+    image: '/images/limpertsberg-house-main.jpg',
     images: [
-      './assets/limpertsberg-house-living.jpg', 
-      './assets/limpertsberg-house-bath1.jpg',
-      './assets/limpertsberg-house-bath2.jpg', 
-      './assets/limpertsberg-house-corridor2.jpg'
+      '/images/limpertsberg-house-living.jpg', 
+      '/images/limpertsberg-house-bath1.jpg',
+      '/images/limpertsberg-house-bath2.jpg', 
+      '/images/limpertsberg-house-corridor2.jpg'
     ],
     rooms: [
       { 
@@ -192,7 +191,7 @@ const PROPERTIES = [
         available: 'Indefinite', 
         status: 'occupied', 
         features: '1st floor',
-        images: ['./assets/limpertsberg-house-room11.jpg']
+        images: ['/images/limpertsberg-house-room11.jpg']
       },
       { 
         id: 'h-r3', 
@@ -442,6 +441,10 @@ const AdminDashboard = ({ user, onClose }) => {
 
   useEffect(() => {
     if (!user) return;
+    if (!db) {
+      setLoading(false);
+      return;
+    }
     const q = collection(db, 'artifacts', appId, 'public', 'data', 'applications');
     // Using simple query without complex ordering to avoid index requirements
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -534,6 +537,7 @@ const ApplicationModal = ({ property, room, onClose, onSuccess }) => {
     e.preventDefault();
     setSubmitting(true);
     try {
+      if (!db) throw new Error('Firestore not configured');
       await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'applications'), {
         ...formData,
         propertyName: property.title,
@@ -765,8 +769,7 @@ const RoomCard = ({ room, property, onApply, onImageClick }) => {
             isAvailable 
               ? 'bg-slate-900 text-white hover:bg-emerald-600 shadow-md hover:shadow-lg' 
               : 'bg-slate-100 text-slate-400 cursor-not-allowed'
-          }`}
-        >
+          }`}>
           {isAvailable ? 'Apply Now' : 'Currently Rented'}
         </button>
       </div>
@@ -783,13 +786,23 @@ export default function App() {
   const [lightbox, setLightbox] = useState({ isOpen: false, images: [], index: 0 });
 
   useEffect(() => {
+    if (!auth) {
+      console.warn('Firebase auth not initialized; skipping auth setup.');
+      return;
+    }
+
     const initAuth = async () => {
-      if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-        await signInWithCustomToken(auth, __initial_auth_token);
-      } else {
-        await signInAnonymously(auth);
+      try {
+        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+          await signInWithCustomToken(auth, __initial_auth_token);
+        } else {
+          await signInAnonymously(auth);
+        }
+      } catch (e) {
+        console.warn('Auth initialization failed:', e);
       }
     };
+
     initAuth();
     const unsubscribe = onAuthStateChanged(auth, setUser);
     return () => unsubscribe();
@@ -848,7 +861,7 @@ export default function App() {
             onClick={() => setSelectedProperty(null)}
           >
             <img 
-              src="./assets/logo.png" 
+              src="/images/logo.png" 
               alt="LivingLux Logo" 
               className="h-10 w-10 object-cover rounded-lg"
             />
