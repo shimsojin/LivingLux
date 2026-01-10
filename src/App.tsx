@@ -984,6 +984,7 @@ const FaqView = () => (
 
 // Map Component with CSS circles
 const PropertyMap = ({ properties, onSelect }) => {
+  const [mapSrc, setMapSrc] = useState('/images/map.png');
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center flex items-center justify-center gap-2">
@@ -992,9 +993,10 @@ const PropertyMap = ({ properties, onSelect }) => {
       </h2>
       <div className="relative w-full aspect-[16/9] bg-slate-100 rounded-2xl overflow-hidden shadow-lg border border-slate-200 group">
         {/* Placeholder Map Background - Use a real map image URL here in production */}
-        <img 
-          src="/images/luxembourg-map.svg" 
-          alt="Luxembourg City Map" 
+        <img
+          src={mapSrc}
+          onError={() => setMapSrc('/images/luxembourg-map.svg')}
+          alt="Luxembourg City Map"
           className="w-full h-full object-cover opacity-60 group-hover:opacity-70 transition-opacity"
         />
         <div className="absolute inset-0 bg-emerald-900/10 pointer-events-none"></div>
