@@ -993,9 +993,9 @@ const PropertyMap = ({ properties, onSelect }) => {
       <div className="relative w-full aspect-[16/9] bg-slate-100 rounded-2xl overflow-hidden shadow-lg border border-slate-200 group">
         {/* Placeholder Map Background - Use a real map image URL here in production */}
         <img 
-          src="https://static.vecteezy.com/system/resources/previews/000/546/619/original/luxembourg-city-map-vector.jpg" 
+          src="/images/luxembourg-map.svg" 
           alt="Luxembourg City Map" 
-          className="w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-opacity"
+          className="w-full h-full object-cover opacity-60 group-hover:opacity-70 transition-opacity"
         />
         <div className="absolute inset-0 bg-emerald-900/10 pointer-events-none"></div>
         
