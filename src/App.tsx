@@ -990,11 +990,11 @@ const PropertyMap = () => {
         <MapIcon className="w-8 h-8 text-emerald-600" />
         Property Locations
       </h2>
-      <div className="relative w-full aspect-[16/9] bg-slate-100 rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+      <div className="relative w-full aspect-[16/9] bg-slate-100 rounded-2xl overflow-hidden shadow-lg border border-slate-200 flex items-center justify-center">
         <img
           src="/images/map.png"
           alt="Map"
-          className="w-full h-full object-cover"
+          className="w-[70%] h-[70%] object-contain"
         />
       </div>
     </div>
