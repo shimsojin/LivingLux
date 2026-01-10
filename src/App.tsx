@@ -520,14 +520,28 @@ const ApplicationModal = ({ property, room, onClose, onSuccess }) => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'applications'), {
-        ...formData,
-        propertyName: property.title,
-        roomName: room.name,
-        propertyId: property.id,
-        roomId: room.id,
-        createdAt: serverTimestamp()
-      });
+      if (db) {
+        await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'applications'), {
+          ...formData,
+          propertyName: property.title,
+          roomName: room.name,
+          propertyId: property.id,
+          roomId: room.id,
+          createdAt: serverTimestamp()
+        });
+      }
+
+      // Send email notification via serverless function (best-effort)
+      try {
+        await fetch('/api/send-application', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...formData, propertyName: property.title, roomName: room.name })
+        });
+      } catch (mailErr) {
+        console.warn('Failed to send application email:', mailErr);
+      }
+
       onSuccess();
     } catch (error) {
       console.error("Error submitting application:", error);
