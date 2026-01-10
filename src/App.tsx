@@ -982,52 +982,20 @@ const FaqView = () => (
   </div>
 );
 
-// Map Component with CSS circles
-const PropertyMap = ({ properties, onSelect }) => {
-  const [mapSrc, setMapSrc] = useState('/images/map.png');
+// Static Map Image
+const PropertyMap = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center flex items-center justify-center gap-2">
         <MapIcon className="w-8 h-8 text-emerald-600" />
         Property Locations
       </h2>
-      <div className="relative w-full aspect-[16/9] bg-slate-100 rounded-2xl overflow-hidden shadow-lg border border-slate-200 group">
-        {/* Placeholder Map Background - Use a real map image URL here in production */}
+      <div className="relative w-full aspect-[16/9] bg-slate-100 rounded-2xl overflow-hidden shadow-lg border border-slate-200">
         <img
-          src={mapSrc}
-          onError={() => setMapSrc('/images/luxembourg-map.svg')}
-          alt="Luxembourg City Map"
-          className="w-full h-full object-cover opacity-60 group-hover:opacity-70 transition-opacity"
+          src="/images/map.png"
+          alt="Map"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-emerald-900/10 pointer-events-none"></div>
-        
-        {properties.map((prop) => (
-          <div 
-            key={prop.id}
-            onClick={() => onSelect(prop)}
-            className="absolute cursor-pointer flex flex-col items-center group/marker transform -translate-x-1/2 -translate-y-1/2 hover:z-10 transition-all duration-300"
-            style={{ top: prop.mapPos?.top || '50%', left: prop.mapPos?.left || '50%' }}
-          >
-            {/* Pulse Circle */}
-            <div className="relative">
-              <div className="w-24 h-24 bg-emerald-500/20 rounded-full animate-ping absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-              <div className="w-12 h-12 bg-emerald-600/40 rounded-full border-2 border-emerald-600 backdrop-blur-sm flex items-center justify-center shadow-xl group-hover/marker:scale-110 transition-transform">
-                <Home className="w-5 h-5 text-white" />
-              </div>
-            </div>
-            
-            {/* Tooltip Label */}
-            <div className="mt-2 bg-white/95 backdrop-blur-md px-4 py-2 rounded-lg shadow-lg text-xs font-bold text-slate-800 border border-emerald-100 opacity-0 group-hover/marker:opacity-100 transition-opacity whitespace-nowrap pointer-events-none transform translate-y-2 group-hover/marker:translate-y-0 z-20">
-              {prop.title}
-              <div className="text-[10px] font-normal text-slate-500">{prop.address}</div>
-            </div>
-          </div>
-        ))}
-        
-        <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur px-3 py-1 rounded text-xs text-slate-500 flex items-center gap-1">
-          <Info className="w-3 h-3" />
-          <span>Approximate locations</span>
-        </div>
       </div>
     </div>
   );
