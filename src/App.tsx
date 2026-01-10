@@ -6,8 +6,14 @@ import {
   Home, MapPin, Bed, Bath, Trees, Calendar, Send, 
   CheckCircle, Briefcase, User, Mail, Phone, Shield, 
   ChevronRight, ChevronLeft, ArrowLeft, Star, LayoutGrid, X, Camera, ZoomIn,
-  Moon, Trash2, CigaretteOff, HeartHandshake
+  Moon, Trash2, CigaretteOff, HeartHandshake, Euro, FileText, Clock, Bus, Train
 } from 'lucide-react';
+
+// --- Firebase Initialization (Vite env) ---
+const firebase = initFirebase();
+const auth = firebase ? firebase.auth : null;
+const db = firebase ? firebase.db : null;
+const appId = import.meta.env.VITE_APP_ID || 'default-app-id';
 
 // --- Helper for Availability Summary ---
 const getAvailabilitySummary = (rooms) => {
@@ -17,14 +23,12 @@ const getAvailabilitySummary = (rooms) => {
     return { count: 0, text: 'Fully Rented', color: 'text-slate-400' };
   }
 
-  // Sort dates to find the earliest availability
   const sortedDates = availableRooms
     .map(r => r.available)
     .sort((a, b) => new Date(a) - new Date(b));
   
   const earliestDate = sortedDates[0];
   
-  // Format date nicely (e.g., "1 Mar 2026")
   let dateDisplay = earliestDate;
   try {
     const dateObj = new Date(earliestDate);
@@ -32,7 +36,7 @@ const getAvailabilitySummary = (rooms) => {
       dateDisplay = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
     }
   } catch (e) {
-    // Fallback to raw string
+    // Fallback
   }
 
   return {
@@ -42,119 +46,17 @@ const getAvailabilitySummary = (rooms) => {
   };
 };
 
-// --- Firebase Initialization (standard Vite env) ---
-const firebase = initFirebase();
-const auth = firebase ? firebase.auth : null;
-const db = firebase ? firebase.db : null;
-const appId = import.meta.env.VITE_APP_ID || 'default-app-id';
+// --- Housing Rules Constant ---
+const HOUSE_RULES = [
+  { icon: HeartHandshake, title: "Community First", desc: "Respect your housemates and treat everyone with kindness." },
+  { icon: Moon, title: "Quiet Hours", desc: "Please keep noise to a minimum between 10 PM and 7 AM." },
+  { icon: Trash2, title: "Cleanliness", desc: "Clean up after cooking. Weekly professional cleaning covers common areas." },
+  { icon: CigaretteOff, title: "No Smoking", desc: "Smoking is strictly prohibited inside all properties." },
+];
 
 // --- Mock Data for Properties ---
 const PROPERTIES = [
-  {
-    id: 'bertrange-apt',
-    title: 'The Bertrange Garden Residence',
-    location: 'Bertrange, Luxembourg',
-    type: 'Apartment',
-    tags: ['High-end', 'Private Garden', 'Peaceful'],
-    description: 'A luxurious apartment perfect for those seeking nature near the city. Features a stunning private garden and high-end finishes.',
-    amenities: ['Private Garden', 'Large Balcony', 'High-end fully equipped Kitchen', 'Underground Parking'],
-    image: '/images/bertrange-apt-main.jpg',
-    images: [
-      '/images/bertrange-apt-main2.jpg', 
-      '/images/bertrange-apt-garden.jpeg', 
-      '/images/bertrange-apt-balcony.jpeg', 
-      '/images/bertrange-apt-corridor1.jpg',  
-      '/images/bertrange-apt-corridor2.jpg' 
-    ],
-    rooms: [
-      { 
-        id: 'b-r1', 
-        name: 'Bright room 1', 
-        price: 1000,
-        charges: 150,
-        size: '10m²', 
-        available: '2026-04-30', 
-        status: 'occupied', 
-        features: 'Street view',
-        images: [
-          '/images/bertrange-apt-room1.jpeg'
-        ]
-      },
-      { 
-        id: 'b-r2', 
-        name: 'Bright room 2', 
-        price: null,
-        charges: null, 
-        size: '10m²', 
-        available: 'Indefinite', 
-        status: 'occupied', 
-        features: 'Street view',
-        images: ['/images/bertrange-apt-room2.jpg']
-      },
-      { 
-        id: 'b-r3', 
-        name: 'Cosy room', 
-        price: null,
-        charges: null, 
-        size: '13m²', 
-        available: 'Indefinite', 
-        status: 'occupied', 
-        features: 'Street view',
-        images: ['/images/bertrange-apt-room3.jpg']
-      },
-    ]
-  },
-  {
-    id: 'limp-apt',
-    title: 'Limpertsberg Skyline Flat',
-    location: 'Limpertsberg, Luxembourg',
-    type: 'Apartment',
-    tags: ['Bright', 'City View', 'Central'],
-    description: 'A bright and spacious 5-bedroom apartment in the heart of Limpertsberg. Walking distance to Glacis and financial district.',
-    amenities: ['2 Balconies', 'Spacious Living Room', '2 Bathrooms', 'Laundry Room', 'Smart TV'],
-    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1000',
-    images: [
-      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1200', // Main
-      'https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=1200', // Living
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200', // Balcony View
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200'  // Bath
-    ],
-    rooms: [
-      { 
-        id: 'l-r1', 
-        name: 'Bright room with private balcony', 
-        price: null,
-        charges: null, 
-        size: '16.4m² + 3m² balcony', 
-        available: 'Indefinite', 
-        status: 'occupied', 
-        features: 'Garden view, Private balcony access',
-        images: ['https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=80&w=600']
-      },
-      { 
-        id: 'l-r2', 
-        name: 'Spacious room with private balcony', 
-        price: null,
-        charges: null, 
-        size: '19.2m² + 3m² balcony', 
-        available: 'Indefinite', 
-        status: 'occupied', 
-        features: 'Forest view, Private balcony access',
-        images: ['https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&q=80&w=600']
-      },
-      { 
-        id: 'l-r3', 
-        name: 'Bright room', 
-        price: null,
-        charges: null, 
-        size: '12m²', 
-        available: 'Indefinite', 
-        status: 'occupied', 
-        features: 'Garden view',
-        images: ['https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=600']
-      },
-    ]
-  },
+  // 1. Limpertsberg House
   {
     id: 'limp-house',
     title: 'Maison de Maître Limpertsberg',
@@ -162,91 +64,174 @@ const PROPERTIES = [
     type: 'House',
     tags: ['High-end', '3 Floors', 'Prestige'],
     description: 'An expansive 3-story high-end house offering the ultimate coliving experience. Generous common areas and premium privacy.',
+    locationHighlights: [
+      { icon: Bus, text: "2 min walk to Tram stop Glacis" },
+      { icon: Briefcase, text: "10 min walk to Kirchberg Financial District" },
+      { icon: Clock, text: "5 min to City Center by Tram" },
+      { icon: Trees, text: "Next to Parc Tony Neuman" }
+    ],
     amenities: ['3 Floors', 'Grand Kitchen', 'Home Cinema', 'Gym Area', 'Wine Cellar', 'Weekly Maid'],
-    image: '/images/limpertsberg-house-main.jpg',
+    image: 'https://images.unsplash.com/photo-1600596542815-6ad4c7213aa9?auto=format&fit=crop&q=80&w=1000',
     images: [
-      '/images/limpertsberg-house-living.jpg', 
-      '/images/limpertsberg-house-bath1.jpg',
-      '/images/limpertsberg-house-bath2.jpg', 
-      '/images/limpertsberg-house-corridor2.jpg'
+      'https://images.unsplash.com/photo-1600596542815-6ad4c7213aa9?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1580587771525-78b9dba3b91d?auto=format&fit=crop&q=80&w=1200'
     ],
     rooms: [
       { 
-        id: 'h-r1', 
-        name: 'Standard Double A', 
-        price: 950,
-        charges: 150, 
-        size: '13m²', 
-        available: '2026-03-01', 
-        status: 'available', 
-        features: 'Ground floor, Dedicated WC',
+        id: 'h-r1', name: 'Standard Double A', price: 950, charges: 150, size: '13m²', 
+        available: '2026-03-01', status: 'available', features: 'Ground floor, Dedicated WC',
         images: ['https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=600']
       },
       { 
-        id: 'h-r2', 
-        name: 'Standard Double B', 
-        price: null,
-        charges: null, 
-        size: '13m²', 
-        available: 'Indefinite', 
-        status: 'occupied', 
-        features: '1st floor',
-        images: ['/images/limpertsberg-house-room11.jpg']
+        id: 'h-r2', name: 'Standard Double B', price: null, charges: null, size: '13m²', 
+        available: 'Indefinite', status: 'occupied', features: '1st floor',
+        images: ['https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?auto=format&fit=crop&q=80&w=600']
       },
       { 
-        id: 'h-r3', 
-        name: 'Suite Double A', 
-        price: 1100,
-        charges: 150, 
-        size: '16m²', 
-        available: '2026-03-01', 
-        status: 'available', 
-        features: '1st floor',
+        id: 'h-r3', name: 'Suite Double A', price: 1100, charges: 150, size: '16m²', 
+        available: '2026-03-01', status: 'available', features: '1st floor',
         images: ['https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&q=80&w=600']
       },
       { 
-        id: 'h-r4', 
-        name: 'Mini Double A', 
-        price: null,
-        charges: null, 
-        size: '11m²', 
-        available: 'Indefinite', 
-        status: 'occupied', 
-        features: '1st floor',
+        id: 'h-r4', name: 'Mini Double A', price: null, charges: null, size: '11m²', 
+        available: 'Indefinite', status: 'occupied', features: '1st floor',
         images: ['https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&q=80&w=600']
       },
       { 
-        id: 'h-r5', 
-        name: 'Suite Double B', 
-        price: null,
-        charges: null, 
-        size: '15m²', 
-        available: 'Indefinite', 
-        status: 'occupied', 
-        features: '2nd floor',
+        id: 'h-r5', name: 'Suite Double B', price: null, charges: null, size: '15m²', 
+        available: 'Indefinite', status: 'occupied', features: '2nd floor',
         images: ['https://images.unsplash.com/photo-1522771753035-4a53c9d1314f?auto=format&fit=crop&q=80&w=600']
       },
       { 
-        id: 'h-r6', 
-        name: 'Suite Double C', 
-        price: 1050,
-        charges: 150, 
-        size: '16m²', 
-        available: '2026-03-01', 
-        status: 'available', 
-        features: '2nd floor',
+        id: 'h-r6', name: 'Suite Double C', price: 1050, charges: 150, size: '16m²', 
+        available: '2026-03-01', status: 'available', features: '2nd floor',
         images: ['https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=80&w=600']
       },
       { 
-        id: 'h-r7', 
-        name: 'Standard Double C', 
-        price: null,
-        charges: null, 
-        size: '12.5m²', 
-        available: 'Indefinite', 
-        status: 'occupied', 
-        features: '2nd floor, Skylight window',
+        id: 'h-r7', name: 'Standard Double C', price: null, charges: null, size: '12.5m²', 
+        available: 'Indefinite', status: 'occupied', features: '2nd floor, Skylight window',
         images: ['https://images.unsplash.com/photo-1536349788264-1b816db3cc13?auto=format&fit=crop&q=80&w=600']
+      },
+    ]
+  },
+  // 2. Dommeldange House
+  {
+    id: 'dom-house',
+    title: 'Maison de Maître Dommeldange',
+    location: 'Dommeldange, Luxembourg',
+    type: 'House',
+    tags: ['8 Rooms', 'Forest View', 'Spacious'],
+    description: 'A magnificent 3-story Maison de Maître located in the quiet and green area of Dommeldange. Close to the train station and Kirchberg, this property features 8 fully renovated rooms, a large common area, and beautiful forest views.',
+    locationHighlights: [
+      { icon: Train, text: "5 min walk to Dommeldange Train Station" },
+      { icon: Bus, text: "Direct bus to Kirchberg (10 min)" },
+      { icon: Trees, text: "Direct access to Grengewald forest trails" },
+      { icon: Clock, text: "8 min to Clausen nightlife" }
+    ],
+    amenities: ['8 Bedrooms', 'Forest View', 'Large Kitchen', '3 Bathrooms', 'High-speed Internet', 'Laundry Room'],
+    image: 'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&q=80&w=1000',
+    images: [
+      'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=1200',
+    ],
+    rooms: Array.from({ length: 8 }).map((_, i) => ({
+      id: `d-r${i+1}`,
+      name: `Room ${i+1}`,
+      price: 900 + (i * 20),
+      charges: 150,
+      size: `${12 + i}m²`,
+      available: '2026-03-10',
+      status: 'available',
+      features: i % 2 === 0 ? 'Forest view' : 'Street view',
+      images: [
+        `https://images.unsplash.com/photo-${1595526114035 + i}?auto=format&fit=crop&q=80&w=600`,
+        `https://images.unsplash.com/photo-${1595526114035 + i + 10}?auto=format&fit=crop&q=80&w=600` // Example 2nd image
+      ]
+    }))
+  },
+  // 3. Limpertsberg Apartment
+  {
+    id: 'limp-apt',
+    title: 'Limpertsberg Skyline Flat',
+    location: 'Limpertsberg, Luxembourg',
+    type: 'Apartment',
+    tags: ['Bright', 'City View', 'Central'],
+    description: 'A bright and spacious 5-bedroom apartment in the heart of Limpertsberg. Walking distance to Glacis and financial district.',
+    locationHighlights: [
+      { icon: Briefcase, text: "Walking distance to Big 4 firms" },
+      { icon: Bus, text: "1 min to Bus stop" },
+      { icon: Clock, text: "15 min walk to City Center" },
+      { icon: Trees, text: "Close to Parc de Merl" }
+    ],
+    amenities: ['2 Balconies', 'Spacious Living Room', '2 Bathrooms', 'Laundry Room', 'Smart TV'],
+    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1000',
+    images: [
+      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200'
+    ],
+    rooms: [
+      { 
+        id: 'l-r1', name: 'Bright room with private balcony', price: null, charges: null, size: '16.4m² + 3m² balcony', 
+        available: 'Indefinite', status: 'occupied', features: 'Garden view, Private balcony access',
+        images: ['https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=80&w=600']
+      },
+      { 
+        id: 'l-r2', name: 'Spacious room with private balcony', price: null, charges: null, size: '19.2m² + 3m² balcony', 
+        available: 'Indefinite', status: 'occupied', features: 'Forest view, Private balcony access',
+        images: ['https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&q=80&w=600']
+      },
+      { 
+        id: 'l-r3', name: 'Bright room', price: null, charges: null, size: '12m²', 
+        available: 'Indefinite', status: 'occupied', features: 'Garden view',
+        images: ['https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=600']
+      },
+    ]
+  },
+  // 4. Bertrange Apartment
+  {
+    id: 'bertrange-apt',
+    title: 'The Bertrange Garden Residence',
+    location: 'Bertrange, Luxembourg',
+    type: 'Apartment',
+    tags: ['High-end', 'Private Garden', 'Peaceful'],
+    description: 'A luxurious apartment perfect for those seeking nature near the city. Features a stunning private garden and high-end finishes.',
+    locationHighlights: [
+      { icon: Bus, text: "Direct bus to City Center (20 min)" },
+      { icon: Bus, text: "15 min to Cloche d'Or by bus" },
+      { icon: Trees, text: "Private garden access" },
+      { icon: Clock, text: "5 min to City Concorde Shopping Mall" }
+    ],
+    amenities: ['Private Garden', 'Large Balcony', 'High-end fully equipped Kitchen', 'Underground Parking'],
+    image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1000',
+    images: [
+      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=1200'
+    ],
+    rooms: [
+      { 
+        id: 'b-r1', name: 'Bright room 1', price: 1000, charges: 150, size: '10m²', 
+        available: '2026-04-30', status: 'occupied', features: 'Street view',
+        images: [
+          'https://images.unsplash.com/photo-1616594039964-40891a909d93?auto=format&fit=crop&q=80&w=600',
+          'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=80&w=600'
+        ]
+      },
+      { 
+        id: 'b-r2', name: 'Bright room 2', price: null, charges: null, size: '10m²', 
+        available: 'Indefinite', status: 'occupied', features: 'Street view',
+        images: ['https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&q=80&w=600']
+      },
+      { 
+        id: 'b-r3', name: 'Cosy room', price: null, charges: null, size: '13m²', 
+        available: 'Indefinite', status: 'occupied', features: 'Street view',
+        images: ['https://images.unsplash.com/photo-1512918760530-772752699e9b?auto=format&fit=crop&q=80&w=600']
       },
     ]
   }
@@ -261,16 +246,13 @@ const Lightbox = ({ isOpen, onClose, images, initialIndex }) => {
     setCurrentIndex(initialIndex);
   }, [initialIndex]);
 
-  // Handle keyboard navigation
   useEffect(() => {
     if (!isOpen) return;
-
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
       if (e.key === 'ArrowRight') next(e);
       if (e.key === 'ArrowLeft') prev(e);
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, images.length]);
@@ -361,10 +343,8 @@ const PropertyHero = ({ property, onBack, onImageClick }) => {
         />
       </div>
       
-      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none"></div>
 
-      {/* Navigation Arrows */}
       {images.length > 1 && (
         <>
           <button 
@@ -380,7 +360,6 @@ const PropertyHero = ({ property, onBack, onImageClick }) => {
             <ChevronRight className="w-6 h-6" />
           </button>
           
-          {/* Dots Indicator */}
           <div className="absolute bottom-32 left-0 right-0 flex justify-center gap-2 z-10">
             {images.map((_, idx) => (
               <button
@@ -418,7 +397,6 @@ const PropertyHero = ({ property, onBack, onImageClick }) => {
         </div>
       </div>
       
-      {/* Image Counter Badge */}
       <div className="absolute bottom-8 right-8 flex gap-2 z-10">
         <div className="bg-black/50 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-medium flex items-center gap-2">
           <ZoomIn className="w-3 h-3" />
@@ -441,15 +419,9 @@ const AdminDashboard = ({ user, onClose }) => {
 
   useEffect(() => {
     if (!user) return;
-    if (!db) {
-      setLoading(false);
-      return;
-    }
     const q = collection(db, 'artifacts', appId, 'public', 'data', 'applications');
-    // Using simple query without complex ordering to avoid index requirements
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const apps = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      // Sort in memory
       apps.sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
       setApplications(apps);
       setLoading(false);
@@ -493,7 +465,7 @@ const AdminDashboard = ({ user, onClose }) => {
                   </span>
                 </div>
                 
-                <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-300 mb-4">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-gray-300 mb-4">
                   <div className="flex items-center gap-2">
                     <Mail className="w-4 h-4" /> {app.email}
                   </div>
@@ -501,7 +473,13 @@ const AdminDashboard = ({ user, onClose }) => {
                     <Phone className="w-4 h-4" /> {app.phone}
                   </div>
                   <div className="flex items-center gap-2">
-                    <Briefcase className="w-4 h-4" /> {app.profession}
+                    <Briefcase className="w-4 h-4" /> {app.occupation} ({app.contractType})
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <User className="w-4 h-4" /> Employer: {app.employer}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Euro className="w-4 h-4" /> Net: €{app.netSalary}
                   </div>
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4" /> Move-in: {app.moveInDate}
@@ -527,8 +505,13 @@ const ApplicationModal = ({ property, room, onClose, onSuccess }) => {
     fullName: '',
     email: '',
     phone: '',
-    profession: '',
+    occupation: '',
+    employer: '',
+    contractType: 'CDI',
+    grossSalary: '',
+    netSalary: '',
     moveInDate: '',
+    duration: '',
     message: ''
   });
   const [submitting, setSubmitting] = useState(false);
@@ -537,7 +520,6 @@ const ApplicationModal = ({ property, room, onClose, onSuccess }) => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      if (!db) throw new Error('Firestore not configured');
       await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'applications'), {
         ...formData,
         propertyName: property.title,
@@ -569,82 +551,92 @@ const ApplicationModal = ({ property, room, onClose, onSuccess }) => {
         </div>
         
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
+          {/* Personal Info */}
           <div className="space-y-1">
             <label className="text-xs font-semibold uppercase text-slate-500">Full Name</label>
-            <input 
-              required
-              type="text" 
-              className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none invalid:border-red-500 invalid:ring-1 invalid:ring-red-500 transition-all"
-              placeholder="e.g. Jean Dupont"
-              value={formData.fullName}
-              onChange={e => setFormData({...formData, fullName: e.target.value})}
-            />
+            <input required type="text" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
+              value={formData.fullName} onChange={e => setFormData({...formData, fullName: e.target.value})} />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1">
               <label className="text-xs font-semibold uppercase text-slate-500">Email</label>
-              <input 
-                required
-                type="email" 
-                className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none invalid:border-red-500 invalid:ring-1 invalid:ring-red-500"
-                placeholder="jean@example.com"
-                value={formData.email}
-                onChange={e => setFormData({...formData, email: e.target.value})}
-              />
+              <input required type="email" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
+                value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
             </div>
             <div className="space-y-1">
               <label className="text-xs font-semibold uppercase text-slate-500">Phone</label>
-              <input 
-                required
-                type="tel" 
-                className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none invalid:border-red-500 invalid:ring-1 invalid:ring-red-500"
-                placeholder="+352 ..."
-                value={formData.phone}
-                onChange={e => setFormData({...formData, phone: e.target.value})}
-              />
+              <input required type="tel" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
+                value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
             </div>
           </div>
 
+          {/* Professional Info */}
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1">
-              <label className="text-xs font-semibold uppercase text-slate-500">Profession</label>
-              <input 
-                required
-                type="text" 
-                className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none invalid:border-red-500 invalid:ring-1 invalid:ring-red-500"
-                placeholder="e.g. Auditor, IT Consultant"
-                value={formData.profession}
-                onChange={e => setFormData({...formData, profession: e.target.value})}
-              />
+              <label className="text-xs font-semibold uppercase text-slate-500">Occupation</label>
+              <input required type="text" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
+                value={formData.occupation} onChange={e => setFormData({...formData, occupation: e.target.value})} />
             </div>
             <div className="space-y-1">
+              <label className="text-xs font-semibold uppercase text-slate-500">Employer</label>
+              <input required type="text" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
+                value={formData.employer} onChange={e => setFormData({...formData, employer: e.target.value})} />
+            </div>
+          </div>
+
+          <div className="space-y-1">
+            <label className="text-xs font-semibold uppercase text-slate-500">Contract Type</label>
+            <select required className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none bg-white"
+              value={formData.contractType} onChange={e => setFormData({...formData, contractType: e.target.value})}>
+              <option value="CDI">CDI (Permanent)</option>
+              <option value="CDD">CDD (Fixed-term)</option>
+              <option value="Internship">Internship</option>
+              <option value="Freelance">Freelance</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          {/* Financial Info */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-1">
+              <label className="text-xs font-semibold uppercase text-slate-500">Gross Monthly Salary (€)</label>
+              <input required type="number" step="100" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
+                value={formData.grossSalary} onChange={e => setFormData({...formData, grossSalary: e.target.value})} />
+            </div>
+            <div className="space-y-1">
+              <label className="text-xs font-semibold uppercase text-slate-500">Net Monthly Salary (€)</label>
+              <input required type="number" step="100" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
+                value={formData.netSalary} onChange={e => setFormData({...formData, netSalary: e.target.value})} />
+            </div>
+          </div>
+
+          {/* Rental Details */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-1">
               <label className="text-xs font-semibold uppercase text-slate-500">Move-in Date</label>
-              <input 
-                required
-                type="date" 
-                className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none invalid:border-red-500 invalid:ring-1 invalid:ring-red-500"
-                value={formData.moveInDate}
-                onChange={e => setFormData({...formData, moveInDate: e.target.value})}
-              />
+              <input required type="date" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
+                placeholder="Preferably 1st or 16th"
+                value={formData.moveInDate} onChange={e => setFormData({...formData, moveInDate: e.target.value})} />
+              <p className="text-[10px] text-slate-400">Preferably 1st or 16th of the month</p>
+            </div>
+            <div className="space-y-1">
+              <label className="text-xs font-semibold uppercase text-slate-500">Duration</label>
+              <input required type="text" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
+                placeholder="e.g. 6 months, 1 year"
+                value={formData.duration} onChange={e => setFormData({...formData, duration: e.target.value})} />
             </div>
           </div>
 
           <div className="space-y-1">
             <label className="text-xs font-semibold uppercase text-slate-500">Message (Optional)</label>
-            <textarea 
-              className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none invalid:border-red-500 invalid:ring-1 invalid:ring-red-500 h-24 resize-none"
+            <textarea className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none h-24 resize-none"
               placeholder="Tell us a bit about yourself..."
-              value={formData.message}
-              onChange={e => setFormData({...formData, message: e.target.value})}
-            ></textarea>
+              value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})}></textarea>
           </div>
 
-          <button 
-            type="submit" 
-            disabled={submitting}
-            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-lg shadow-lg shadow-emerald-200 transition-all flex items-center justify-center gap-2 mt-4"
-          >
+          <button type="submit" disabled={submitting}
+            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-lg shadow-lg shadow-emerald-200 transition-all flex items-center justify-center gap-2 mt-4">
             {submitting ? 'Sending...' : (
               <>
                 <Send className="w-5 h-5" />
@@ -661,21 +653,16 @@ const ApplicationModal = ({ property, room, onClose, onSuccess }) => {
 const RoomCard = ({ room, property, onApply, onImageClick }) => {
   const [currentImgIdx, setCurrentImgIdx] = useState(0);
   const isAvailable = room.status === 'available';
-  
   const images = room.images || (room.image ? [room.image] : []);
 
   const nextImage = (e) => {
     e.stopPropagation();
-    if (images.length > 1) {
-      setCurrentImgIdx((prev) => (prev + 1) % images.length);
-    }
+    if (images.length > 1) setCurrentImgIdx((prev) => (prev + 1) % images.length);
   };
 
   const prevImage = (e) => {
     e.stopPropagation();
-    if (images.length > 1) {
-      setCurrentImgIdx((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-    }
+    if (images.length > 1) setCurrentImgIdx((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
   
   return (
@@ -684,32 +671,18 @@ const RoomCard = ({ room, property, onApply, onImageClick }) => {
         className="h-48 overflow-hidden relative group/image cursor-zoom-in" 
         onClick={() => onImageClick(images, currentImgIdx)}
       >
-        <img 
-          src={images[currentImgIdx]} 
-          alt={room.name} 
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
+        <img src={images[currentImgIdx]} alt={room.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         {!isAvailable && (
           <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-10">
-            <span className="px-3 py-1 bg-black/60 text-white text-xs font-bold uppercase tracking-wider rounded border border-white/20">
-              Rented
-            </span>
+            <span className="px-3 py-1 bg-black/60 text-white text-xs font-bold uppercase tracking-wider rounded border border-white/20">Rented</span>
           </div>
         )}
-
-        {/* Navigation Arrows for Multiple Images */}
         {images.length > 1 && (
           <>
-            <button 
-              onClick={prevImage}
-              className="absolute left-2 top-1/2 -translate-y-1/2 p-1 rounded-full bg-black/30 text-white hover:bg-white hover:text-black transition-all opacity-0 group-hover/image:opacity-100 backdrop-blur-sm z-20"
-            >
+            <button onClick={prevImage} className="absolute left-2 top-1/2 -translate-y-1/2 p-1 rounded-full bg-black/30 text-white hover:bg-white hover:text-black transition-all opacity-0 group-hover/image:opacity-100 backdrop-blur-sm z-20">
               <ChevronLeft className="w-4 h-4" />
             </button>
-            <button 
-              onClick={nextImage}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-full bg-black/30 text-white hover:bg-white hover:text-black transition-all opacity-0 group-hover/image:opacity-100 backdrop-blur-sm z-20"
-            >
+            <button onClick={nextImage} className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-full bg-black/30 text-white hover:bg-white hover:text-black transition-all opacity-0 group-hover/image:opacity-100 backdrop-blur-sm z-20">
               <ChevronRight className="w-4 h-4" />
             </button>
             <div className="absolute bottom-2 right-2 bg-black/50 px-2 py-0.5 rounded text-[10px] text-white font-medium z-20">
@@ -735,9 +708,7 @@ const RoomCard = ({ room, property, onApply, onImageClick }) => {
                   <span className="text-xs text-slate-400 ml-1">/month</span>
                 </div>
                 {room.charges && (
-                  <div className="text-xs text-slate-500 font-medium mt-0.5">
-                    + €{room.charges} charges
-                  </div>
+                  <div className="text-xs text-slate-500 font-medium mt-0.5">+ €{room.charges} charges</div>
                 )}
               </>
             ) : (
@@ -753,23 +724,12 @@ const RoomCard = ({ room, property, onApply, onImageClick }) => {
           </div>
           <div className={`flex items-center gap-2 text-sm font-medium ${isAvailable ? 'text-emerald-600' : 'text-amber-600'}`}>
             <Calendar className="w-4 h-4" />
-            <span>
-              {isAvailable 
-                ? `Available: ${room.available}` 
-                : (room.available === 'Indefinite' ? 'Currently Rented' : `Booked until ${room.available}`)
-              }
-            </span>
+            <span>{isAvailable ? `Available: ${room.available}` : (room.available === 'Indefinite' ? 'Currently Rented' : `Booked until ${room.available}`)}</span>
           </div>
         </div>
 
-        <button 
-          onClick={() => isAvailable && onApply(property, room)}
-          disabled={!isAvailable}
-          className={`w-full py-3 px-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all ${
-            isAvailable 
-              ? 'bg-slate-900 text-white hover:bg-emerald-600 shadow-md hover:shadow-lg' 
-              : 'bg-slate-100 text-slate-400 cursor-not-allowed'
-          }`}>
+        <button onClick={() => isAvailable && onApply(property, room)} disabled={!isAvailable}
+          className={`w-full py-3 px-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all ${isAvailable ? 'bg-slate-900 text-white hover:bg-emerald-600 shadow-md hover:shadow-lg' : 'bg-slate-100 text-slate-400 cursor-not-allowed'}`}>
           {isAvailable ? 'Apply Now' : 'Currently Rented'}
         </button>
       </div>
@@ -793,8 +753,9 @@ export default function App() {
 
     const initAuth = async () => {
       try {
-        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-          await signInWithCustomToken(auth, __initial_auth_token);
+        const token = import.meta.env.VITE_INITIAL_AUTH_TOKEN;
+        if (token) {
+          await signInWithCustomToken(auth, token);
         } else {
           await signInAnonymously(auth);
         }
@@ -861,9 +822,9 @@ export default function App() {
             onClick={() => setSelectedProperty(null)}
           >
             <img 
-              src="/images/logo.png" 
+              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=100" 
               alt="LivingLux Logo" 
-              className="h-10 w-10 object-cover rounded-lg"
+              className="h-14 w-14 object-cover rounded-lg"
             />
             <span className="text-xl font-bold tracking-tight text-slate-900">LivingLux</span>
           </div>
@@ -871,12 +832,6 @@ export default function App() {
           <nav className="hidden md:flex items-center gap-8">
             <a href="#properties" className="text-sm font-medium hover:text-emerald-600 transition-colors">Properties</a>
             <a href="#about" className="text-sm font-medium hover:text-emerald-600 transition-colors">About Us</a>
-            <button 
-              onClick={() => setShowAdmin(true)}
-              className="text-sm font-medium text-slate-400 hover:text-slate-600 flex items-center gap-1"
-            >
-              <User className="w-4 h-4" /> Owner Login
-            </button>
           </nav>
         </div>
       </header>
@@ -897,6 +852,25 @@ export default function App() {
                 <section>
                   <h2 className="text-2xl font-bold mb-4 text-slate-900">About this property</h2>
                   <p className="text-lg text-slate-600 leading-relaxed">{selectedProperty.description}</p>
+                </section>
+
+                <section>
+                  <h2 className="text-2xl font-bold mb-4 text-slate-900 flex items-center gap-2">
+                    <MapPin className="w-6 h-6 text-emerald-600" />
+                    Location
+                  </h2>
+                  <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      {selectedProperty.locationHighlights.map((highlight, idx) => (
+                        <div key={idx} className="flex items-center gap-3">
+                          <div className="p-2 bg-emerald-50 rounded-full text-emerald-600">
+                            <highlight.icon className="w-5 h-5" />
+                          </div>
+                          <span className="text-slate-700">{highlight.text}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </section>
 
                 <section>
@@ -929,6 +903,23 @@ export default function App() {
                       />
                     ))}
                   </div>
+                </section>
+
+                <section className="pt-8 border-t border-slate-200">
+                   <h2 className="text-2xl font-bold mb-6 text-slate-900">House Rules</h2>
+                   <div className="grid sm:grid-cols-2 gap-6">
+                    {HOUSE_RULES.map((rule, idx) => (
+                      <div key={idx} className="flex gap-4 p-4 bg-slate-50 rounded-lg border border-slate-100">
+                        <div className="flex-shrink-0 w-10 h-10 bg-white text-emerald-600 rounded-full flex items-center justify-center shadow-sm">
+                          <rule.icon className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-slate-900">{rule.title}</h4>
+                          <p className="text-sm text-slate-500 mt-1">{rule.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                   </div>
                 </section>
               </div>
 
@@ -1143,12 +1134,7 @@ export default function App() {
               </div>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                {[
-                  { icon: HeartHandshake, title: "Community First", desc: "Respect your housemates and treat everyone with kindness." },
-                  { icon: Moon, title: "Quiet Hours", desc: "Please keep noise to a minimum between 10 PM and 7 AM." },
-                  { icon: Trash2, title: "Cleanliness", desc: "Clean up after cooking. Weekly professional cleaning covers common areas." },
-                  { icon: CigaretteOff, title: "No Smoking", desc: "Smoking is strictly prohibited inside all properties." },
-                ].map((rule, idx) => (
+                {HOUSE_RULES.map((rule, idx) => (
                   <div key={idx} className="bg-white p-8 rounded-xl shadow-sm border border-slate-100 text-center hover:-translate-y-1 transition-transform">
                     <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
                       <rule.icon className="w-6 h-6" />
