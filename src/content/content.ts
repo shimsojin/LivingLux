@@ -61,6 +61,7 @@ export const PROPERTIES = [
       '/images/limpertsberg-house-kitchen.JPG',
       '/images/limpertsberg-house-bath1.jpg',
       '/images/limpertsberg-house-bath2.jpg',
+      '/images/limpertsberg-house-bath3.JPG',
       '/images/limpertsberg-house-corridor2.JPG',
       '/images/limpertsberg-house-corridor.jpg'
     ],
