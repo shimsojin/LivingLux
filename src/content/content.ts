@@ -12,15 +12,15 @@ export const CORE_VALUES = [
 export const HOUSE_RULES = [
   { icon: 'HeartHandshake', title: "Community First", desc: "Respect your housemates and treat everyone with kindness." },
   { icon: 'Moon', title: "Quiet Hours", desc: "Please keep noise to a minimum between 10 PM and 7 AM." },
-  { icon: 'Trash2', title: "Cleanliness", desc: "Clean up after cooking. Weekly professional cleaning covers common areas." },
-  { icon: 'CigaretteOff', title: "No Smoking", desc: "Smoking is strictly prohibited inside all properties." },
+  { icon: 'Trash2', title: "Cleanliness", desc: "Weekly professional cleaning covers common areas. Though, we may clean up after using the kitchen and common spaces." },
+  { icon: 'CigaretteOff', title: "No Smoking", desc: "Smoking is strictly prohibited inside all premises." },
 ];
 
 export const FAQS = [
   { question: "Is there an agency fee?", answer: "No. All our properties are rented directly by the owners, so you save on agency fees (typically 1 month rent + VAT). We believe in transparent and fair pricing." },
   { question: "What is the typical tenant profile?", answer: "Our community consists of young professionals (22-35 years old) working in Luxembourg's major sectors like finance, tech, and European institutions." },
   { question: "What is included in the charges?", answer: "Charges include 2Gbit fiber internet, water, heating, electricity, weekly cleaning of common areas, and garbage disposal." },
-  { question: "What is the minimum rental duration?", answer: "Our standard contracts start from 6 months. We offer flexibility for interns and project-based professionals depending on availability." },
+  { question: "What is the minimum rental duration?", answer: "Our standard contracts start from 3 months. We offer flexibility for interns and project-based professionals depending on availability." },
   { question: "How do I apply?", answer: "Simply click 'Apply Now' on the room or garage you are interested in. We will review your application and get back to you within 24 hours to schedule a viewing." },
 ];
 
@@ -35,14 +35,14 @@ export const GARAGES = [
 export const PROPERTIES = [
   {
     id: 'limpertsberg-house',
-    title: 'Maison de Maître Limpertsberg',
+    title: 'Limpertsberg Grand Residence',
     location: 'Limpertsberg, Luxembourg City',
     address: '365 rue de rollingergrund',
     totalSpace: '200m² + 5m² backyard',
     type: 'House',
     mapPos: { top: '45%', left: '42%' },
-    tags: ['High-end', '3 Floors', 'Prestige'],
-    description: 'An expansive 3-story high-end house offering the ultimate coliving experience in the prestigious Belair district. Generous common areas and premium privacy.',
+    tags: ['High-end', '3 Floors', 'Spacious'],
+    description: 'An expansive 3-story high-end house offering the ultimate coliving experience in the prestigious Limpertsberg district. Generous common areas and premium privacy.',
     locationHighlights: [
       { icon: 'Bus', text: "2 min walk to Tram stop Place de l'Étoile" },
       { icon: 'Briefcase', text: "15 min walk to City Center" },
@@ -54,36 +54,39 @@ export const PROPERTIES = [
       'Weekly Maid', 'Washing Machine', 'Tumble Dryer', 'Dishwasher', 'Smart TV', 
       'Fully Equipped Kitchen', 'Coffee Machine', 'Iron & Ironing Board', 'Bed Linen Provided'
     ],
-    image: 'https://images.unsplash.com/photo-1600596542815-6ad4c7213aa9?auto=format&fit=crop&q=80&w=1000',
+    image: '/images/limpertsberg-house-room22.jpg',
     images: [
-      'https://images.unsplash.com/photo-1600596542815-6ad4c7213aa9?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1580587771525-78b9dba3b91d?auto=format&fit=crop&q=80&w=1200'
+      '/images/limpertsberg-house-main.jpg',
+      '/images/limpertsberg-house-living.jpg',
+      '/images/limpertsberg-house-kitchen.JPG',
+      '/images/limpertsberg-house-bath1.jpg',
+      '/images/limpertsberg-house-bath2.jpg',
+      '/images/limpertsberg-house-corridor2.JPG',
+      '/images/limpertsberg-house-corridor.jpg'
     ],
     rooms: [
-      { id: 'h-r1', name: 'Standard Double A', price: 950, charges: 150, size: '13m²', available: '2026-03-01', status: 'available', features: 'Ground floor, Dedicated WC', images: ['https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=600'] },
-      { id: 'h-r2', name: 'Standard Double B', price: null, charges: null, size: '13m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?auto=format&fit=crop&q=80&w=600'] },
-      { id: 'h-r3', name: 'Suite Double A', price: 1100, charges: 150, size: '16m²', available: '2026-03-01', status: 'available', features: '1st floor', images: ['https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&q=80&w=600'] },
-      { id: 'h-r4', name: 'Mini Double A', price: null, charges: null, size: '11m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&q=80&w=600'] },
-      { id: 'h-r5', name: 'Suite Double B', price: null, charges: null, size: '15m²', available: 'Indefinite', status: 'occupied', features: '2nd floor', images: ['https://images.unsplash.com/photo-1522771753035-4a53c9d1314f?auto=format&fit=crop&q=80&w=600'] },
-      { id: 'h-r6', name: 'Suite Double C', price: 1050, charges: 150, size: '16m²', available: '2026-03-01', status: 'available', features: '2nd floor', images: ['https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=80&w=600'] },
-      { id: 'h-r7', name: 'Standard Double C', price: null, charges: null, size: '12.5m²', available: 'Indefinite', status: 'occupied', features: '2nd floor, Skylight window', images: ['https://images.unsplash.com/photo-1536349788264-1b816db3cc13?auto=format&fit=crop&q=80&w=600'] },
+      { id: 'h-r1', name: 'Standard Double A', price: null, charges: null, size: '13m²', available: 'Indefinite', status: 'occupied', features: 'Ground floor, Dedicated WC', images: ['/images/limpertsberg-house-room10.JPG'] },
+      { id: 'h-r2', name: 'Standard Double B', price: null, charges: null, size: '13m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room11.JPG','/images/limpertsberg-house-room11-2.JPG'] },
+      { id: 'h-r3', name: 'Suite Double A', price: 1100, charges: 150, size: '16m²', available: '2026-03-01', status: 'available', features: '1st floor', images: ['/images/limpertsberg-house-room12.JPG'] },
+      { id: 'h-r4', name: 'Mini Double A', price: null, charges: null, size: '11m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room13.jpg','/images/limpertsberg-house-room13-2.jpg'] },
+      { id: 'h-r5', name: 'Suite Double B', price: null, charges: null, size: '15m²', available: 'Indefinite', status: 'occupied', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
+      { id: 'h-r6', name: 'Suite Double C', price: 1050, charges: 150, size: '16m²', available: '2026-03-01', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
+      { id: 'h-r7', name: 'Standard Double C', price: null, charges: null, size: '12.5m²', available: 'Indefinite', status: 'occupied', features: '2nd floor, Skylight window', images: ['/images/limpertsberg-house-room23.JPG'] },
     ]
   },
   {
     id: 'dom-house',
-    title: 'Maison de Maître Dommeldange',
-    location: 'Dommeldange, Luxembourg City',
+    title: 'Dommeldange Grand Residence',
+    location: 'Dommeldange Gare, Luxembourg City',
     address: '15 Rue des Hauts-Fourneaux',
-    totalSpace: '225m² + 20m² terrace',
+    totalSpace: '250m² + 20m² terrace',
     type: 'House',
     mapPos: { top: '25%', left: '75%' },
-    tags: ['8 Rooms', 'Forest View', 'Spacious'],
-    description: 'A magnificent 3-story Maison de Maître located in the quiet and green area of Dommeldange. Close to the train station and Kirchberg, this property features 8 fully renovated rooms, a large common area, and beautiful forest views.',
+    tags: ['3 Floors', 'Excellent Connection', 'Spacious'],
+    description: 'A magnificent 3-story Grand Residence located in the quiet area of Dommeldange Gare. Close to the train station and Kirchberg, this property features 8 fully renovated rooms, a large common area, and beautiful forest views.',
     locationHighlights: [
-      { icon: 'Train', text: "5 min walk to Dommeldange Train Station" },
-      { icon: 'Bus', text: "Direct bus to Kirchberg (10 min)" },
+      { icon: 'Train', text: "Right next to Dommeldange Gare" },
+      { icon: 'Bus', text: "Direct bus to Kirchberg (150 min)" },
       { icon: 'Trees', text: "Direct access to Grengewald forest trails" },
       { icon: 'Clock', text: "8 min to Clausen nightlife" }
     ],
@@ -92,26 +95,24 @@ export const PROPERTIES = [
       'Laundry Room', 'Weekly Maid', 'Garden/Terrace', 'BBQ Area', 'Bike Storage', 
       'Dishwasher', 'Microwave', 'Oven', 'Coffee Machine'
     ],
-    image: 'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&q=80&w=1000',
+    image: '/images/dommeldange-room12.JPG',
     images: [
-      'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=1200'
+      '/images/dommeldange-dinning.JPG',
+      '/images/dommeldange-living.JPG',
+      '/images/dommeldange-corridor.JPG',
+      '/images/dommeldange-corridor2.JPG'
     ],
-    rooms: Array.from({ length: 8 }).map((_, i) => ({
-      id: `d-r${i+1}`,
-      name: `Room ${i+1}`,
-      price: 900 + (i * 20),
-      charges: 150,
-      size: `${12 + i}m²`,
-      available: '2026-03-10',
-      status: 'available',
-      features: i % 2 === 0 ? 'Forest view' : 'Street view',
-      images: [
-        `https://images.unsplash.com/photo-${1595526114035 + i}?auto=format&fit=crop&q=80&w=600`,
-        `https://images.unsplash.com/photo-${1595526114035 + i + 10}?auto=format&fit=crop&q=80&w=600`
-      ]
-    }))
+
+    rooms: [
+      { id: 'h-r1', name: 'Standard Double A', price: 700, charges: 150, size: '13m²', available: '2026-04-01', status: 'available', features: 'Ground floor', images: ['/images/limpertsberg-house-room10.JPG'] },
+      { id: 'h-r2', name: 'Standard Double B', price: 700, charges: 150, size: '13m²', available: '2026-04-01', status: 'available', eatures: 'Ground floor', images: ['/images/limpertsberg-house-room10.JPG'] },
+      { id: 'h-r3', name: 'Standard Double C', price: 750, charges: 150, size: '13m²', available: '2026-04-01', status: 'available', features: '1st floor', images: ['/images/limpertsberg-house-room12.JPG'] },
+      { id: 'h-r4', name: 'Grand Suite Double', price: 850, charges: 150, size: '18m²', available: '2026-04-01', status: 'available', features: '1st floor', images: ['/images/dommeldange-room12.JPG','/images/dommeldange-room12-2.JPG'] },
+      { id: 'h-r5', name: 'Standard Double D', price: 750, charges: 150, size: '13m²', available: '2026-04-01', status: 'available', features: '1st floor', images: ['/images/limpertsberg-house-room12.JPG'] },
+      { id: 'h-r6', name: 'Suite Double A', price: 800, charges: 150, size: '16m²', available: '2026-04-15', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
+      { id: 'h-r7', name: 'Suite Double B', price: 800, charges: 150, size: '16m²', available: '2026-04-15', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
+      { id: 'h-r8', name: 'Suite Double C', price: 800, charges: 150, size: '16m²', available: '2026-04-15', status: 'available', features: '2nd floor, Skylight window', images: ['/images/limpertsberg-house-room23.JPG'] }
+    ]
   },
   {
     id: 'limp-apt',
