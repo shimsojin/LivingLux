@@ -896,7 +896,11 @@ export default function App() {
               <div className="lg:col-span-2 space-y-12">
                 <section>
                   <h2 className="text-2xl font-bold mb-4 text-slate-900">About this property</h2>
-                  <p className="text-lg text-slate-600 leading-relaxed">{selectedProperty.description}</p>
+                  <div className="text-lg text-slate-600 leading-relaxed space-y-4">
+                    {String(selectedProperty.description || '').split(/\n+/).map((para, idx) => (
+                      <p key={idx}>{para}</p>
+                    ))}
+                  </div>
                 </section>
 
                 <section>
