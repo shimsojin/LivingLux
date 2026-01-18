@@ -43,8 +43,8 @@ export const PROPERTIES = [
     totalSpace: '200m² + 5m² backyard',
     type: 'House',
     mapPos: { top: '45%', left: '42%' },
-    tags: ['High-end', '3 Floors', 'Spacious'],
-    description: 'An expansive 3-story high-end house offering the ultimate coliving experience in the prestigious Limpertsberg district. Generous common areas and premium privacy.',
+    tags: ['Central', 'High-end', 'Spacious'],
+    description: 'A prestigious three-storey residence, fully renovated to a high-end standard, offering an exceptional coliving experience in Limpertsberg area.\nThe house features generous common areas thoughtfully designed for comfort and social living, while ensuring a high level of privacy for each resident.\nA brand-new, fully equipped kitchen will be delivered and installed on 1 February.\nEach room is furnished with comfortable, nearly new furniture, including a double bed, dedicated work desk and chair, large mirrored wardrobe, bedside table, smart lightings, and electric shutters, allowing you to move in with ease from day one.\nThe community is composed of young professionals in their mid-20s to mid-30s, in a mixed-gender environment, working in leading organisations such as Amazon, major banks, European institutions, and the public sector. The atmosphere is professional, respectful, and well-balanced—ideal for focused work and comfortable living.',
     locationHighlights: [
       { icon: 'Briefcase', text: "20 min walk to City Centre" },
       { icon: 'Bus', text: "1 min walk to the bus stop" },
@@ -88,8 +88,8 @@ export const PROPERTIES = [
     totalSpace: '250m² + 20m² terrace',
     type: 'House',
     mapPos: { top: '25%', left: '75%' },
-    tags: ['3 Floors', 'Excellent Connection', 'Spacious'],
-    description: 'A magnificent 3-story Grand Residence located in the quiet area of Dommeldange Gare. Close to the train station and Kirchberg, this property features 8 fully renovated rooms, a large common area, and beautiful forest views.',
+    tags: ['Excellent Connection', 'Spacious', 'To-be High-end'],
+    description: 'A magnificent three-storey Grand Residence located in the quiet area of Dommeldange Gare, just steps from the train station and with excellent access to Kirchberg and the city centre. The property offers eight rooms, a spacious common living area, and a private terrace, creating a comfortable and well-balanced coliving environment.\n\nWith multiple direct train and bus connections, commuting to Kirchberg, the city centre, or major business districts is fast and effortless.\n\nEach room is furnished with comfortable, nearly new furniture, including a double bed, dedicated work desk and chair, large mirrored wardrobe, bedside table, and smart lighting, allowing you to move in seamlessly from day one.\n\nThe community consists of young professionals in their mid-20s to mid-30s, in a mixed-gender environment, working at leading organisations such as Amazon, major banks, European institutions, and the public sector.\n\nThe house is currently undergoing continuous upgrades to its common areas and facilities. Rental pricing has been adjusted accordingly, and the room photos accurately represent the room you will receive upon arrival.',
     locationHighlights: [
       { icon: 'Train', text: "1 min walk to Dommeldange Gare" },
       { icon: 'Train', text: "5 min direct train to Kirchberg (every 10 min)" },
@@ -134,8 +134,8 @@ export const PROPERTIES = [
     totalSpace: '94m² + 5m² balcony + 180m² garden',
     type: 'Apartment',
     mapPos: { top: '58%', left: '15%' },
-    tags: ['High-end', 'Private Garden', 'Peaceful'],
-    description: 'A luxurious apartment perfect for those seeking nature near the city. Features a stunning private garden and high-end finishes.',
+    tags: ['Excellent Connection', 'High-end', 'Private Garden'],
+    description: 'A luxurious apartment perfect for those seeking nature near the city. Features a stunning private garden and high-end finishes.With multiple direct bus and train connections, commuting to the city centre is effortless. /n/nEach room is furnished with comfortable, nearly new furniture, including a double bed, dedicated work desk and chair, large mirrored wardrobe, bedside table, smart lighting, and electric shutters, allowing you to move in seamlessly from day one./n/nThe community is composed of young professionals in their mid-20s to mid-30s, in a mixed-gender environment, working at leading organisations such as Amazon, major banks, European institutions, and the public sector.',
     locationHighlights: [
       { icon: 'Bus', text: "1 min walk to the bus stop" },
       { icon: 'Bus', text: "15 min direct bus to Hamilius (City Center)" },
@@ -173,8 +173,8 @@ export const PROPERTIES = [
     totalSpace: '118m² + 6m² balcony',
     type: 'Apartment',
     mapPos: { top: '38%', left: '48%' },
-    tags: ['City Central', 'Forest View', 'Bright & Spacious'],
-    description: 'A bright and spacious 5-bedroom apartment in the heart of Limpertsberg. Walking distance to Glacis and financial district.',
+    tags: ['Prime Location', 'Bright', 'Forest View'],
+    description: 'A bright five-bedroom apartment with dual balconies offering sunlight from morning to evening, located in the heart of Luxembourg City with excellent transport connections. \n\nWith multiple direct bus connections, commuting to the city centre, Kirchberg, or major business districts is effortless. /n/nEach room is furnished with comfortable, nearly new furniture, including a double bed, dedicated work desk and chair, large mirrored wardrobe, bedside table, smart lighting, and electric shutters, allowing you to move in seamlessly from day one./n/nThe community is composed of young professionals in their mid-20s to mid-30s, in a mixed-gender environment, working at leading organisations such as Amazon, major banks, European institutions, and the public sector.',
     locationHighlights: [
       { icon: 'Briefcase', text: "20 min walk to City Centre" },
       { icon: 'Bus', text: "1 min walk to the bus stop" },
