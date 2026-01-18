@@ -135,7 +135,7 @@ export const PROPERTIES = [
     type: 'Apartment',
     mapPos: { top: '58%', left: '15%' },
     tags: ['Excellent Connection', 'High-end', 'Private Garden'],
-    description: 'A luxurious apartment perfect for those seeking nature near the city. Features a stunning private garden and high-end finishes.With multiple direct bus and train connections, commuting to the city centre is effortless. /n/nEach room is furnished with comfortable, nearly new furniture, including a double bed, dedicated work desk and chair, large mirrored wardrobe, bedside table, smart lighting, and electric shutters, allowing you to move in seamlessly from day one./n/nThe community is composed of young professionals in their mid-20s to mid-30s, in a mixed-gender environment, working at leading organisations such as Amazon, major banks, European institutions, and the public sector.',
+    description: 'A luxurious apartment perfect for those seeking nature near the city. Features a stunning private garden and high-end finishes.With multiple direct bus and train connections, commuting to the city centre is effortless. \n\nEach room is furnished with comfortable, nearly new furniture, including a double bed, dedicated work desk and chair, large mirrored wardrobe, bedside table, smart lighting, and electric shutters, allowing you to move in seamlessly from day one.\n\nThe community is composed of young professionals in their mid-20s to mid-30s, in a mixed-gender environment, working at leading organisations such as Amazon, major banks, European institutions, and the public sector.',
     locationHighlights: [
       { icon: 'Bus', text: "1 min walk to the bus stop" },
       { icon: 'Bus', text: "15 min direct bus to Hamilius (City Center)" },
@@ -174,7 +174,7 @@ export const PROPERTIES = [
     type: 'Apartment',
     mapPos: { top: '38%', left: '48%' },
     tags: ['Prime Location', 'Bright', 'Forest View'],
-    description: 'A bright five-bedroom apartment with dual balconies offering sunlight from morning to evening, located in the heart of Luxembourg City with excellent transport connections. \n\nWith multiple direct bus connections, commuting to the city centre, Kirchberg, or major business districts is effortless. /n/nEach room is furnished with comfortable, nearly new furniture, including a double bed, dedicated work desk and chair, large mirrored wardrobe, bedside table, smart lighting, and electric shutters, allowing you to move in seamlessly from day one./n/nThe community is composed of young professionals in their mid-20s to mid-30s, in a mixed-gender environment, working at leading organisations such as Amazon, major banks, European institutions, and the public sector.',
+    description: 'A bright five-bedroom apartment with dual balconies offering sunlight from morning to evening, located in the heart of Luxembourg City with excellent transport connections. \n\nWith multiple direct bus connections, commuting to the city centre, Kirchberg, or major business districts is effortless. \n\nEach room is furnished with comfortable, nearly new furniture, including a double bed, dedicated work desk and chair, large mirrored wardrobe, bedside table, smart lighting, and electric shutters, allowing you to move in seamlessly from day one.\n\nThe community is composed of young professionals in their mid-20s to mid-30s, in a mixed-gender environment, working at leading organisations such as Amazon, major banks, European institutions, and the public sector.',
     locationHighlights: [
       { icon: 'Briefcase', text: "20 min walk to City Centre" },
       { icon: 'Bus', text: "1 min walk to the bus stop" },
@@ -200,8 +200,8 @@ export const PROPERTIES = [
     ],
     rooms: [
       { id: 'l-r1', name: 'Bright room with private balcony', price: null, charges: null, size: '16.4m² + 3m² balcony', available: 'Indefinite', status: 'occupied', features: 'Garden view, Private balcony access', images: ['/images/limpertsberg-apt-room1.JPG'] },
-      { id: 'l-r2', name: 'Bright double room', price: null, charges: null, size: '12m²', available: 'Indefinite', status: 'occupied', features: 'Garden view', images: ['/images/limpertsberg-apt-room2.JPG'] },
-      { id: 'l-r3', name: 'Suite double room', price: null, charges: null, size: '14m²', available: 'Indefinite', status: 'occupied', features: 'Garden view, Private balcony access', images: ['/images/limpertsberg-apt-room3.JPG','/images/limpertsberg-apt-room3-2.JPG'] },
+      { id: 'l-r2', name: 'Bright double room', price: null, charges: null, size: '12m²', available: 'Indefinite', status: 'occupied', features: 'Garden view', images: ['/images/limpertsberg-apt-room2.jpg'] },
+      { id: 'l-r3', name: 'Suite double room', price: null, charges: null, size: '14m²', available: 'Indefinite', status: 'occupied', features: 'Garden view, Private balcony access', images: ['/images/limpertsberg-apt-room3.jpeg','/images/limpertsberg-apt-room3-2.jpeg'] },
       { id: 'l-r4', name: 'Spacious room with private balcony', price: null, charges: null, size: '19.2m² + 3m² balcony', available: 'Indefinite', status: 'occupied', features: 'Forest view, Private balcony access', images: ['/images/limpertsberg-apt-room4.JPG'] },
       { id: 'l-r5', name: 'Cosy double room', price: null, charges: null, size: '12m²', available: 'Indefinite', status: 'occupied', features: 'Forest view', images: ['/images/limpertsberg-apt-room5.JPG','/images/limpertsberg-apt-room5-2.JPG'] },
     ]
