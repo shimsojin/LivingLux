@@ -1001,7 +1001,7 @@ const PropertyMap = () => {
   );
 };
 
-export default function App() {
+function AppInner() {
   const [user, setUser] = useState(null);
   const [view, setView] = useState('home'); // 'home' | 'faq' | 'property'
   const [selectedProperty, setSelectedProperty] = useState(null);
@@ -1502,5 +1502,52 @@ export default function App() {
         </main>
       )}
     </div>
+  );
+}
+
+// Simple Error Boundary to surface runtime errors instead of a white screen
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null, info: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error, info) {
+    this.setState({ error, info });
+    console.error('Unhandled React error:', error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen bg-white flex flex-col items-center justify-center p-6">
+          <div className="max-w-xl text-center">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Something went wrong</h2>
+            <p className="text-slate-600 mb-6">An unexpected error occurred while rendering the app. Please try reloading the page.</p>
+            <div className="flex gap-3 justify-center">
+              <button onClick={() => window.location.reload()} className="px-4 py-2 bg-emerald-600 text-white rounded">Reload</button>
+              <button onClick={() => { navigator.clipboard?.writeText(String(this.state.error) + '\n' + (this.state.info?.componentStack || '')); }} className="px-4 py-2 bg-slate-100 rounded">Copy error</button>
+            </div>
+            <details className="mt-6 text-left text-xs text-slate-500 whitespace-pre-wrap">
+              {String(this.state.error)}
+              {this.state.info?.componentStack}
+            </details>
+          </div>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+export default function App() {
+  return (
+    <ErrorBoundary>
+      <AppInner />
+    </ErrorBoundary>
   );
 }
