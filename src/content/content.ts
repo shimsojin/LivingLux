@@ -147,7 +147,7 @@ export const PROPERTIES = [
     rooms: [
       { id: 'b-r1', name: 'Bright room A', price: 1000, charges: 150, size: '10m²', available: '2026-05-01', status: 'available', features: 'Street view', images: ['/images/bertrange-apt-room1.jpeg'] },
       { id: 'b-r2', name: 'Bright room B', price: null, charges: null, size: '10m²', available: 'Indefinite', status: 'occupied', features: 'Street view', images: ['/images/bertrange-apt-room2.jpg'] },
-      { id: 'b-r3', name: 'Cosy room', price: null, charges: null, size: '13m²', available: '2026-02-01', status: 'available', features: 'Street view', images: ['/images/bertrange-apt-room3.jpg'] },
+      { id: 'b-r3', name: 'Cosy room', price: 1000, charges: 150, size: '13m²', available: '2026-02-01', status: 'available', features: 'Street view', images: ['/images/bertrange-apt-room3.jpg'] },
     ]
   },
   {
@@ -175,10 +175,10 @@ export const PROPERTIES = [
     images: [
       '/images/limpertsberg-apt-living.JPG',
       '/images/limpertsberg-apt-kitchen.JPG',
-      '/images/limpertsberg-apt-balcony1.JPG',
-      '/images/limpertsberg-apt-balcony2.JPG',
-      '/images/limpertsberg-apt-bath1.JPG',
-      '/images/limpertsberg-apt-bath2.JPG',
+      '/images/limpertsberg-apt-balcony1.jpeg',
+      '/images/limpertsberg-apt-balcony2.jpeg',
+      '/images/limpertsberg-apt-bath1.jpeg',
+      '/images/limpertsberg-apt-bath2.jpeg',
     ],
     rooms: [
       { id: 'l-r1', name: 'Bright room with private balcony', price: null, charges: null, size: '16.4m² + 3m² balcony', available: 'Indefinite', status: 'occupied', features: 'Garden view, Private balcony access', images: ['/images/limpertsberg-apt-room1.JPG'] },
