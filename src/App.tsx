@@ -861,7 +861,7 @@ export default function App() {
                 Live Where You Thrive
               </h1>
               <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-6 animate-fade-in-up delay-200">
-                Curated residences in Bertrange and Limpertsberg designed for young professionals. High-end amenities, great communities, flexible terms.
+                Curated residences in Limpertsberg, Dommeldange Gare and Bertrange designed for young professionals. High-end amenities, great communities, flexible terms.
               </p>
               
               {/* No Agency Fee Banner */}

@@ -5,23 +5,23 @@ import { Trees } from "lucide-react";
 export const CORE_VALUES = [
   { icon: 'Heart', title: "Lifestyle Match", desc: "Curated homes designed to match the dynamic lifestyle of ambitious young professionals." },
   { icon: 'Key', title: "Move-in Ready", desc: "Fully furnished with style. Just bring your suitcase and feel at home from day one." },
-  { icon: 'MapPin', title: "Prime Locations", desc: "Strategically located in Belair, Limpertsberg, and Bertrange for easy city access." },
+  { icon: 'MapPin', title: "Prime Locations", desc: "Strategically located in Limpertsberg, Dommeldange Gare, and Bertrange for easy city access." },
   { icon: 'Calendar', title: "Flexible Terms", desc: "We understand your needs. Lease terms starting from just 3 months." },
   { icon: 'Star', title: "Premium Facilities", desc: "High-end furniture, modern appliances, and top-tier amenities for maximum comfort." },
-  { icon: 'Zap', title: "Hassle-Free Living", desc: "2Gbit fiber internet, regular cleaning service, and fast troubleshooting included." },
+  { icon: 'Zap', title: "Hassle-Free Living", desc: "2Gbps fiber internet, regular cleaning service, and fast troubleshooting included." },
 ];
 
 export const HOUSE_RULES = [
   { icon: 'HeartHandshake', title: "Community First", desc: "Respect your housemates and treat everyone with kindness." },
   { icon: 'Moon', title: "Quiet Hours", desc: "Please keep noise to a minimum between 10 PM and 7 AM." },
-  { icon: 'Trash2', title: "Cleanliness", desc: "Weekly professional cleaning covers common areas. Though, we may clean up after using the kitchen and common spaces." },
+  { icon: 'Trash2', title: "Cleanliness", desc: "Weekly professional cleaning covers common areas. Though, everyone may clean up the kitchen and common spaces after every use." },
   { icon: 'CigaretteOff', title: "No Smoking", desc: "Smoking is strictly prohibited inside all premises." },
 ];
 
 export const FAQS = [
   { question: "Is there an agency fee?", answer: "No. All our properties are rented directly by the owners, so you save on agency fees (typically 1 month rent + VAT). We believe in transparent and fair pricing." },
   { question: "What is the typical tenant profile?", answer: "Our community consists of young professionals (22-35 years old) working in Luxembourg's major sectors like finance, tech, and European institutions." },
-  { question: "What is included in the charges?", answer: "Charges include 2Gbit fiber internet, water, heating, electricity, weekly cleaning of common areas, and garbage disposal." },
+  { question: "What is included in the charges?", answer: "Charges include 2Gbps fiber internet, water, heating, electricity, weekly cleaning of common areas, and garbage disposal." },
   { question: "What is the minimum rental duration?", answer: "Our standard contracts start from 3 months. We offer flexibility for interns and project-based professionals depending on availability." },
   { question: "How do I apply?", answer: "Simply click 'Apply Now' on the room or garage you are interested in. We will review your application and get back to you within 24 hours to schedule a viewing." },
 ];
