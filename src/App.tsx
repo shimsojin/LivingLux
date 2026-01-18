@@ -1005,7 +1005,9 @@ export default function App() {
                           <div className="text-sm text-slate-500 flex items-center gap-1">
                             <MapPin className="w-3 h-3" /> {garage.location}
                           </div>
-                          <div className="text-xs text-slate-500 mt-1">Electricity&Water connected</div>
+                          {(garage.utilitiesConnected ?? true) && (
+                            <div className="text-xs text-slate-500 mt-1">Electricity & Water connected</div>
+                          )}
                       </div>
                       <div className="bg-slate-100 px-2 py-1 rounded text-xs font-semibold uppercase text-slate-600">
                         {garage.type}

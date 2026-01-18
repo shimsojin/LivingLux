@@ -27,11 +27,11 @@ export const FAQS = [
 ];
 
 export const GARAGES = [
-  { id: 'g1', name: 'High-ceiling box garage', location: 'Limpertsberg', price: 350, status: 'available', size: '20m²', type: 'Box garage', image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&q=80&w=600' },
-  { id: 'g2', name: 'Box garage', location: 'Limpertsberg', price: 300, status: 'rented', size: '18m²', type: 'Box garage', image: '/images/limpertsberg-apt-garage.JPG' },
-  { id: 'g3', name: 'High-ceiling box garage', location: 'Dommeldange Gare', price: 350, status: 'available', size: '20m²', type: 'Box garage', image: '/images/dommeldange-garage.JPG' },
-  { id: 'g4', name: 'Underground parking lot', location: 'Bertrange', price: 100, status: 'rented', size: '13m²', type: 'Indoor', image: '/images/bertrange-apt-garage-indoor.JPG' },
-  { id: 'g5', name: 'Private outdoor parking lot', location: 'Bertrange', price: 75, status: 'rented', size: '18m²', type: 'Outdoor', image: '/images/bertrange-apt-garage-outdoor.JPG' },
+  { id: 'g1', name: 'High-ceiling box garage', location: 'Limpertsberg', price: 350, status: 'available', size: '20m²', type: 'Box garage', utilitiesConnected: true, image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&q=80&w=600' },
+  { id: 'g2', name: 'Box garage', location: 'Limpertsberg', price: 300, status: 'rented', size: '18m²', type: 'Box garage', utilitiesConnected: true, image: '/images/limpertsberg-apt-garage.JPG' },
+  { id: 'g3', name: 'High-ceiling box garage', location: 'Dommeldange Gare', price: 350, status: 'available', size: '20m²', type: 'Box garage', utilitiesConnected: true, image: '/images/dommeldange-garage.JPG' },
+  { id: 'g4', name: 'Underground parking lot', location: 'Bertrange', price: 100, status: 'rented', size: '13m²', type: 'Indoor', utilitiesConnected: true, image: '/images/bertrange-apt-garage-indoor.JPG' },
+  { id: 'g5', name: 'Private outdoor parking lot', location: 'Bertrange', price: 75, status: 'rented', size: '18m²', type: 'Outdoor', utilitiesConnected: true, image: '/images/bertrange-apt-garage-outdoor.JPG' },
 ];
 
 export const PROPERTIES = [
