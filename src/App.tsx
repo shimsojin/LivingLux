@@ -164,7 +164,7 @@ const Lightbox = ({ isOpen, onClose, images, initialIndex }) => {
   );
 };
 
-// Seamless infinite-scroll image reel with 1.3x speed
+// Seamless infinite-scroll image reel with 2x speed
 const ImageReel = ({ property, onBack, onImageClick }) => {
   const originalImages = property.images || [property.image];
   const images = [...originalImages, ...originalImages]; 
@@ -178,7 +178,7 @@ const ImageReel = ({ property, onBack, onImageClick }) => {
     if (!container) return;
 
     let animationFrameId;
-    let scrollSpeed = 1.3; // Increased speed (1.3x faster than original 1.0)
+    let scrollSpeed = 2.0; // Increased speed (2x faster than original 1.0)
 
     const scroll = () => {
       if (isPaused || !container) return;
