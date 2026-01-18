@@ -874,6 +874,12 @@ export default function App() {
                 <span className="font-semibold text-emerald-100">No Agency Fees — Rented by Owners</span>
               </div>
 
+              {/* Commune registration note (same style) */}
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full mb-10 animate-fade-in-up delay-300">
+                <FileText className="w-5 h-5 text-emerald-400" />
+                <span className="font-semibold text-emerald-100">Commune Registration Included</span>
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
                 <button onClick={() => document.getElementById('houses').scrollIntoView({behavior: 'smooth'})} className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg font-bold transition-all shadow-lg shadow-emerald-900/50">
                   View Properties
