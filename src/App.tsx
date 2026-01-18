@@ -2,35 +2,24 @@ import React, { useState, useEffect, useRef } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from 'firebase/auth';
 import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from 'firebase/firestore';
-import initFirebase from './firebase';
 import { 
   Home, MapPin, Bed, Bath, Trees, Calendar, Send, 
   CheckCircle, Briefcase, User, Mail, Phone, Shield, 
   ChevronRight, ChevronLeft, ArrowLeft, Star, LayoutGrid, X, Camera, ZoomIn,
   Moon, Trash2, CigaretteOff, HeartHandshake, Euro, FileText, Clock, Bus, Train,
-  HelpCircle, Car, Users, Info, Map as MapIcon, Maximize, Wifi, Key, Zap, Sparkles, Heart
+  HelpCircle, Car, Users, Info, Map as MapIcon, Maximize, Wifi, Key, Zap, Sparkles, Heart, Copy
 } from 'lucide-react';
 
 // --- Firebase Configuration & Initialization ---
+const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
 const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 
 let app, auth, db;
-// Prefer Vite/env-driven initialization via `src/firebase.ts`.
 try {
-  const fb = initFirebase();
-  if (fb) {
-    app = fb.app;
-    auth = fb.auth;
-    db = fb.db;
-  } else {
-    // Fallback to legacy runtime-global injection if present
-    const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-    if (firebaseConfig && Object.keys(firebaseConfig).length > 0) {
-      const tmpApp = initializeApp(firebaseConfig);
-      app = tmpApp;
-      auth = getAuth(tmpApp);
-      db = getFirestore(tmpApp);
-    }
+  if (Object.keys(firebaseConfig).length > 0) {
+    app = initializeApp(firebaseConfig);
+    auth = getAuth(app);
+    db = getFirestore(app);
   }
 } catch (e) {
   console.warn('Firebase init error:', e);
@@ -656,164 +645,61 @@ const AdminDashboard = ({ user, onClose }) => {
   );
 };
 
-const ApplicationModal = ({ property, room, onClose, onSuccess }) => {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    occupation: '',
-    employer: '',
-    contractType: 'CDI',
-    grossSalary: '',
-    moveInDate: '',
-    duration: '',
-    message: ''
-  });
-  const [submitting, setSubmitting] = useState(false);
+const ApplicationModal = ({ property, room, onClose }) => {
+  const [copied, setCopied] = useState(false);
   
-  const moveInOptions = getMoveInOptions();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    try {
-      if (db) {
-        await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'applications'), {
-          ...formData,
-          propertyName: property.title,
-          roomName: room.name,
-          propertyId: property.id,
-          roomId: room.id,
-          createdAt: serverTimestamp()
-        });
-      }
-
-      const mailSubject = `Application for ${property.title} - ${room.name}`;
-      const mailBody = `New Application Received\n\n` +
-        `Property: ${property.title}\n` +
-        `Room: ${room.name}\n\n` +
-        `Applicant Details:\n` +
-        `Name: ${formData.fullName}\n` +
-        `Email: ${formData.email}\n` +
-        `Phone: ${formData.phone}\n` +
-        `Occupation: ${formData.occupation} (${formData.contractType})\n` +
-        `Employer: ${formData.employer}\n` +
-        `Gross Salary: €${formData.grossSalary}\n\n` +
-        `Move-in Date: ${formData.moveInDate}\n` +
-        `Duration: ${formData.duration}\n\n` +
-        `Message:\n${formData.message}`;
-      
-      window.location.href = `mailto:info@livinglux.lu?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
-
-      onSuccess();
-    } catch (error) {
-      console.error("Error submitting application:", error);
-      alert("Something went wrong. Please try again.");
-    } finally {
-      setSubmitting(false);
-    }
+  const handleCopy = () => {
+    navigator.clipboard.writeText("info@livinglux.lu");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-        <div className="p-6 border-b border-gray-100 flex justify-between items-center sticky top-0 bg-white z-10">
-          <div>
-            <h3 className="text-xl font-bold text-slate-800">Apply for Room</h3>
-            <p className="text-sm text-slate-500">{property.title} • {room.name}</p>
+      <div className="bg-white rounded-xl max-w-lg w-full shadow-2xl p-8 relative animate-fade-in">
+        <button onClick={onClose} className="absolute top-4 right-4 p-2 hover:bg-slate-100 rounded-full transition-colors">
+          <X className="w-5 h-5 text-slate-400" />
+        </button>
+
+        <div className="text-center mb-8">
+          <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 text-emerald-600">
+            <Mail className="w-8 h-8" />
           </div>
-          <button onClick={onClose} className="p-2 hover:bg-slate-100 rounded-full transition-colors">
-            <X className="w-5 h-5 text-slate-400" />
-          </button>
+          <h3 className="text-2xl font-bold text-slate-900">How to Apply</h3>
+          <p className="text-slate-600 mt-2">
+            To apply for <strong>{room.name}</strong> at <strong>{property.title}</strong>, please email us directly.
+          </p>
+        </div>
+
+        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8 text-center">
+             <p className="text-sm text-slate-500 mb-2">Send your application to:</p>
+             <div className="flex items-center justify-center gap-2 bg-white px-4 py-3 rounded-lg border border-slate-200 shadow-sm">
+                <span className="font-bold text-lg text-slate-800 select-all">info@livinglux.lu</span>
+                <button onClick={handleCopy} className="p-1.5 hover:bg-slate-100 rounded-md transition-colors text-slate-500">
+                    {copied ? <CheckCircle className="w-5 h-5 text-emerald-500" /> : <Copy className="w-5 h-5" />}
+                </button>
+             </div>
+        </div>
+
+        <div className="text-left space-y-4">
+          <h4 className="text-sm font-bold text-slate-700 uppercase tracking-wide flex items-center gap-2">
+            <Info className="w-4 h-4" /> Please include in your email:
+          </h4>
+          <ul className="space-y-2 text-sm text-slate-600 list-disc pl-5">
+            <li>Full Name & Phone Number</li>
+            <li>Occupation & Contract Type (CDI/CDD)</li>
+            <li>Employer Name</li>
+            <li>Gross Monthly Salary</li>
+            <li>Desired Move-in Date (1st or 16th)</li>
+            <li>Planned Duration of Stay</li>
+          </ul>
         </div>
         
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
-          <div className="space-y-1">
-            <label className="text-xs font-semibold uppercase text-slate-500">Full Name</label>
-            <input required type="text" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
-              value={formData.fullName} onChange={e => setFormData({...formData, fullName: e.target.value})} />
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-1">
-              <label className="text-xs font-semibold uppercase text-slate-500">Email</label>
-              <input required type="email" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
-                value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
-            </div>
-            <div className="space-y-1">
-              <label className="text-xs font-semibold uppercase text-slate-500">Phone</label>
-              <input required type="tel" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
-                value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-1">
-              <label className="text-xs font-semibold uppercase text-slate-500">Occupation</label>
-              <input required type="text" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
-                value={formData.occupation} onChange={e => setFormData({...formData, occupation: e.target.value})} />
-            </div>
-            <div className="space-y-1">
-              <label className="text-xs font-semibold uppercase text-slate-500">Employer</label>
-              <input required type="text" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
-                value={formData.employer} onChange={e => setFormData({...formData, employer: e.target.value})} />
-            </div>
-          </div>
-
-          <div className="space-y-1">
-            <label className="text-xs font-semibold uppercase text-slate-500">Contract Type</label>
-            <select required className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none bg-white"
-              value={formData.contractType} onChange={e => setFormData({...formData, contractType: e.target.value})}>
-              <option value="CDI">CDI (Permanent)</option>
-              <option value="CDD">CDD (Fixed-term)</option>
-              <option value="Internship">Internship</option>
-              <option value="Freelance">Freelance</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-1">
-              <label className="text-xs font-semibold uppercase text-slate-500">Gross Monthly Salary (€)</label>
-              <input required type="number" step="100" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
-                value={formData.grossSalary} onChange={e => setFormData({...formData, grossSalary: e.target.value})} />
-            </div>
-            <div className="space-y-1">
-              <label className="text-xs font-semibold uppercase text-slate-500">Duration</label>
-              <input required type="text" className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none" 
-                placeholder="e.g. 6 months, 1 year"
-                value={formData.duration} onChange={e => setFormData({...formData, duration: e.target.value})} />
-            </div>
-          </div>
-
-          <div className="space-y-1">
-            <label className="text-xs font-semibold uppercase text-slate-500">Move-in Date</label>
-            <select required className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none bg-white"
-              value={formData.moveInDate} onChange={e => setFormData({...formData, moveInDate: e.target.value})}>
-              <option value="">Select a date (1st or 16th)</option>
-              {moveInOptions.map(date => (
-                <option key={date} value={date}>{date}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="space-y-1">
-            <label className="text-xs font-semibold uppercase text-slate-500">Message (Optional)</label>
-            <textarea className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none h-24 resize-none"
-              placeholder="Tell us a bit about yourself..."
-              value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})}></textarea>
-          </div>
-
-          <button type="submit" disabled={submitting}
-            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-lg shadow-lg shadow-emerald-200 transition-all flex items-center justify-center gap-2 mt-4">
-            {submitting ? 'Sending...' : (
-              <>
-                <Send className="w-5 h-5" />
-                Submit Application
-              </>
-            )}
-          </button>
-        </form>
+        <div className="mt-8 pt-6 border-t border-slate-100 text-center">
+            <p className="text-xs text-slate-400">
+                We typically respond within 24 hours.
+            </p>
+        </div>
       </div>
     </div>
   );
@@ -906,55 +792,36 @@ const RoomCard = ({ room, property, onApply, onImageClick }) => {
   );
 };
 
-const ContactForm = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-  };
-
+const ContactInfoSection = () => {
   return (
-    <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
-      <h3 className="text-2xl font-bold text-slate-900 mb-6">Contact Us</h3>
-      <div className="flex flex-col md:flex-row gap-8">
-        <div className="flex-1 space-y-6">
-          <div className="flex items-center gap-4 text-slate-600">
-            <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-600">
-              <Phone className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-sm font-bold text-slate-900">Phone / WhatsApp</div>
-              <div>+352 661 841 915</div>
-            </div>
+    <div className="bg-white p-12 rounded-2xl shadow-lg border border-slate-100 text-center">
+      <h3 className="text-3xl font-bold text-slate-900 mb-8">Get in Touch</h3>
+      <div className="grid md:grid-cols-3 gap-8 justify-items-center">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-600 mb-2">
+            <Phone className="w-8 h-8" />
           </div>
-          <div className="flex items-center gap-4 text-slate-600">
-            <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-600">
-              <Mail className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-sm font-bold text-slate-900">Email</div>
-              <div>info@livinglux.lu</div>
-            </div>
-          </div>
-          <div className="flex items-center gap-4 text-slate-600">
-            <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-600">
-              <Clock className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-sm font-bold text-slate-900">Business Hours</div>
-              <div>Mon - Fri: 9:00 AM - 6:00 PM</div>
-            </div>
-          </div>
+          <h4 className="text-lg font-bold text-slate-900">Phone / WhatsApp</h4>
+          <p className="text-slate-600 text-lg font-medium">+352 661 841 915</p>
         </div>
-        <form onSubmit={handleSubmit} className="flex-1 space-y-4">
-          <input required type="text" placeholder="Your Name" className="w-full p-3 bg-slate-50 rounded-lg border border-slate-200 focus:border-emerald-500 outline-none" />
-          <input required type="email" placeholder="Your Email" className="w-full p-3 bg-slate-50 rounded-lg border border-slate-200 focus:border-emerald-500 outline-none" />
-          <textarea required placeholder="How can we help?" className="w-full p-3 bg-slate-50 rounded-lg border border-slate-200 focus:border-emerald-500 outline-none h-32 resize-none"></textarea>
-          <button type="submit" className="bg-emerald-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-emerald-700 transition-colors w-full">
-            {submitted ? 'Message Sent!' : 'Send Message'}
-          </button>
-        </form>
+        
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-600 mb-2">
+            <Mail className="w-8 h-8" />
+          </div>
+          <h4 className="text-lg font-bold text-slate-900">Email</h4>
+          <a href="mailto:info@livinglux.lu" className="text-emerald-600 text-lg font-medium hover:underline">
+            info@livinglux.lu
+          </a>
+        </div>
+        
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-600 mb-2">
+            <Clock className="w-8 h-8" />
+          </div>
+          <h4 className="text-lg font-bold text-slate-900">Business Hours</h4>
+          <p className="text-slate-600 text-lg">Mon - Fri: 9:00 AM - 6:00 PM</p>
+        </div>
       </div>
     </div>
   );
@@ -982,7 +849,7 @@ const FaqView = () => (
   </div>
 );
 
-// Static Map Image
+// Map Component with CSS circles
 const PropertyMap = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
@@ -990,18 +857,22 @@ const PropertyMap = () => {
         <MapIcon className="w-8 h-8 text-emerald-600" />
         Property Locations
       </h2>
-      <div className="relative w-full aspect-[16/9] bg-slate-100 rounded-2xl overflow-hidden shadow-lg border border-slate-200 flex items-center justify-center">
-        <img
-          src="/images/map.png"
-          alt="Map"
-          className="w-[70%] h-[70%] object-contain"
+      <div className="relative w-full aspect-[16/9] md:aspect-[21/9] bg-slate-100 rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+        {/* Placeholder Map Image - User will replace this */}
+        <img 
+          src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=2000" 
+          alt="Location Map" 
+          className="w-full h-full object-cover"
         />
+        <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur px-3 py-1 rounded text-xs text-slate-500">
+          * Map of Luxembourg City
+        </div>
       </div>
     </div>
   );
 };
 
-function AppInner() {
+export default function App() {
   const [user, setUser] = useState(null);
   const [view, setView] = useState('home'); // 'home' | 'faq' | 'property'
   const [selectedProperty, setSelectedProperty] = useState(null);
@@ -1271,7 +1142,7 @@ function AppInner() {
           </div>
 
           {/* Property Map Section */}
-          <PropertyMap properties={PROPERTIES} onSelect={handlePropertySelect} />
+          <PropertyMap />
 
           {/* Properties Grid (Our Houses) */}
           <div id="houses" className="max-w-7xl mx-auto px-4 py-24 border-t border-slate-200">
@@ -1482,7 +1353,7 @@ function AppInner() {
 
           {/* Contact Section */}
           <div className="max-w-7xl mx-auto px-4 py-24 border-t border-slate-200">
-            <ContactForm />
+            <ContactInfoSection />
           </div>
 
           {/* Footer */}
@@ -1502,52 +1373,5 @@ function AppInner() {
         </main>
       )}
     </div>
-  );
-}
-
-// Simple Error Boundary to surface runtime errors instead of a white screen
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false, error: null, info: null };
-  }
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true, error };
-  }
-
-  componentDidCatch(error, info) {
-    this.setState({ error, info });
-    console.error('Unhandled React error:', error, info);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div className="min-h-screen bg-white flex flex-col items-center justify-center p-6">
-          <div className="max-w-xl text-center">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">Something went wrong</h2>
-            <p className="text-slate-600 mb-6">An unexpected error occurred while rendering the app. Please try reloading the page.</p>
-            <div className="flex gap-3 justify-center">
-              <button onClick={() => window.location.reload()} className="px-4 py-2 bg-emerald-600 text-white rounded">Reload</button>
-              <button onClick={() => { navigator.clipboard?.writeText(String(this.state.error) + '\n' + (this.state.info?.componentStack || '')); }} className="px-4 py-2 bg-slate-100 rounded">Copy error</button>
-            </div>
-            <details className="mt-6 text-left text-xs text-slate-500 whitespace-pre-wrap">
-              {String(this.state.error)}
-              {this.state.info?.componentStack}
-            </details>
-          </div>
-        </div>
-      );
-    }
-    return this.props.children;
-  }
-}
-
-export default function App() {
-  return (
-    <ErrorBoundary>
-      <AppInner />
-    </ErrorBoundary>
   );
 }
