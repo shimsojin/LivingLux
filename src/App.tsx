@@ -971,7 +971,7 @@ export default function App() {
             onClick={() => handleNavClick('home')}
           >
             <img 
-              src="./public/images/logo.png" 
+              src="/images/logo.png" 
               alt="LivingLux Logo" 
               className="h-14 w-14 object-cover rounded-lg"
             />
