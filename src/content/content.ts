@@ -3,9 +3,9 @@
 import { Trees } from "lucide-react";
 
 export const CORE_VALUES = [
-  { icon: 'Heart', title: "Lifestyle Match", desc: "Curated homes designed to match the dynamic lifestyle of ambitious young professionals." },
+  { icon: 'Heart', title: "Lifestyle Match", desc: "Curated homes designed to match the dynamic lifestyle of young professionals." },
   { icon: 'Key', title: "Move-in Ready", desc: "Fully furnished with style. Just bring your suitcase and feel at home from day one." },
-  { icon: 'MapPin', title: "Prime Locations", desc: "Strategically located in Limpertsberg, Dommeldange Gare, and Bertrange for easy city access." },
+  { icon: 'MapPin', title: "Prime Locations", desc: "Strategically located in Limpertsberg, Dommeldange Gare, and Bertrange for your comfortable commute to work." },
   { icon: 'Calendar', title: "Flexible Terms", desc: "We understand your needs. Lease terms starting from just 3 months." },
   { icon: 'Star', title: "Premium Facilities", desc: "High-end furniture, modern appliances, and top-tier amenities for maximum comfort." },
   { icon: 'Zap', title: "Hassle-Free Living", desc: "2Gbps fiber internet, regular cleaning service, and fast troubleshooting included." },
@@ -29,7 +29,7 @@ export const FAQS = [
 export const GARAGES = [
   { id: 'g1', name: 'High-ceiling box garage', location: 'Limpertsberg', price: 350, status: 'available', size: '20m²', type: 'Box garage', image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&q=80&w=600' },
   { id: 'g2', name: 'Box garage', location: 'Limpertsberg', price: 300, status: 'rented', size: '18m²', type: 'Box garage', image: '/images/limpertsberg-apt-garage.JPG' },
-  { id: 'g3', name: 'High-ceiling box garage', location: 'Dommeldange Gare', price: 350, status: 'available', size: '20m²', type: 'Box garage', image: 'https://images.unsplash.com/photo-1621929747188-0b4dc28498d2?auto=format&fit=crop&q=80&w=600' },
+  { id: 'g3', name: 'High-ceiling box garage', location: 'Dommeldange Gare', price: 350, status: 'available', size: '20m²', type: 'Box garage', image: '/images/dommeldange-garage.JPG' },
   { id: 'g4', name: 'Underground parking lot', location: 'Bertrange', price: 100, status: 'rented', size: '13m²', type: 'Indoor', image: '/images/bertrange-apt-garage-indoor.JPG' },
   { id: 'g5', name: 'Private outdoor parking lot', location: 'Bertrange', price: 75, status: 'rented', size: '18m²', type: 'Outdoor', image: '/images/bertrange-apt-garage-outdoor.JPG' },
 ];
@@ -51,7 +51,7 @@ export const PROPERTIES = [
       { icon: 'Bus', text: "15 min direct bus to Kirchberg" },
       { icon: 'Bus', text: "5 min bus ride to Place de l'Étoile" },
       { icon: 'Clock', text: "Restaurants 2-10 min walk" },
-      { icon: 'Trees', text: "2min walk to Bambesch forest" }
+      { icon: 'Trees', text: "2 min walk to Bambesch forest" }
     ],
     amenities: [
       'Fully furnished', '2Gbps fiber internet', 'Weekly professional cleaning', 'Common space more than 100m²',
@@ -103,7 +103,7 @@ export const PROPERTIES = [
     ],
     amenities: [
       'Fully furnished', '2Gbps fiber internet', 'Weekly professional cleaning', 'Common space more than 100m²', 
-      '3 modern bathrooms', 'Smart TV', 'Smart lighting', 'Smart heating system', 'Washing Machine & Dryer', 
+      '3 modern bathrooms', 'Smart TV', 'Smart lighting', 'Smart heating system', 'Shutter with solar panel', 'Washing Machine & Dryer', 
       'Brand-new kitchen', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Coffee Machine & Toaster', 
       'Iron & Ironing Board', 'Bed Linen Provided'
     ],
@@ -147,8 +147,8 @@ export const PROPERTIES = [
     ],
     amenities: [
       'Fully furnished', '2Gbps fiber internet', 'Weekly professional cleaning', '2 modern bathrooms',
-      'Smart lighting', 'Smart heating system', 'Washing Machine & Dryer', 'High-end kitchen', 'Dining and Cooking sets', 
-      'Dishwasher', 'Large Fridge & Freezer', 'Coffee Machine & Toaster', 'Bed Linen Provided'
+      'Smart lighting', 'Smart heating system', 'Electronic shutters', 'Washing Machine & Dryer', 'High-end kitchen', 
+      'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Coffee Machine & Toaster', 'Bed Linen Provided'
     ],
     image: '/images/bertrange-apt-room2.jpg',
     images: [
@@ -185,9 +185,9 @@ export const PROPERTIES = [
     ],
     amenities: [
       'Fully furnished', '2Gbps fiber internet', 'Weekly professional cleaning', 
-      '2 modern bathrooms', 'Smart TV', 'Smart lighting', 'Smart heating system', 'Washing Machine & Dryer', 
-      'Fully equipped kitchen', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Coffee Machine & Toaster', 
-      'Iron & Ironing Board', 'Bed Linen Provided'
+      '2 modern bathrooms', 'Smart TV', 'Smart lighting', 'Smart heating system', 'Shutter with solar panel',
+      'Washing Machine & Dryer', 'Fully equipped kitchen', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 
+      'Coffee Machine & Toaster', 'Iron & Ironing Board', 'Bed Linen Provided'
     ],
     image: '/images/limpertsberg-apt-room4.JPG',
     images: [
