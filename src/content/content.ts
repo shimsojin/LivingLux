@@ -57,7 +57,7 @@ export const PROPERTIES = [
     image: '/images/limpertsberg-house-room22.jpg',
     images: [
       '/images/limpertsberg-house-main.jpg',
-      '/images/limpertsberg-house-living.jpg',
+      '/images/limpertsberg-house-living.JPG',
       '/images/limpertsberg-house-kitchen.JPG',
       '/images/limpertsberg-house-bath1.jpg',
       '/images/limpertsberg-house-bath2.jpg',
@@ -115,40 +115,6 @@ export const PROPERTIES = [
     ]
   },
   {
-    id: 'limp-apt',
-    title: 'Limpertsberg Skyline Flat',
-    location: 'Limpertsberg, Luxembourg City',
-    address: '342 Rue de Rollingergrund',
-    totalSpace: '118m² + 6m² balcony',
-    type: 'Apartment',
-    mapPos: { top: '38%', left: '48%' },
-    tags: ['Bright', 'City View', 'Central'],
-    description: 'A bright and spacious 5-bedroom apartment in the heart of Limpertsberg. Walking distance to Glacis and financial district.',
-    locationHighlights: [
-      { icon: 'Briefcase', text: "Walking distance to Big 4 firms" },
-      { icon: 'Bus', text: "1 min to Bus stop" },
-      { icon: 'Clock', text: "15 min walk to City Center" },
-      { icon: 'Trees', text: "Close to Parc de Merl" }
-    ],
-    amenities: [
-      '2Gbit speed fiber internet', '2 Balconies', 'Spacious Living Room', '2 Bathrooms', 'Laundry Room', 
-      'Smart TV', 'Weekly Maid', 'City View', 'Elevator', 'Bike Storage', 
-      'Dishwasher', 'Microwave', 'Oven'
-    ],
-    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1000',
-    images: [
-      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200'
-    ],
-    rooms: [
-      { id: 'l-r1', name: 'Bright room with private balcony', price: null, charges: null, size: '16.4m² + 3m² balcony', available: 'Indefinite', status: 'occupied', features: 'Garden view, Private balcony access', images: ['https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=80&w=600'] },
-      { id: 'l-r2', name: 'Spacious room with private balcony', price: null, charges: null, size: '19.2m² + 3m² balcony', available: 'Indefinite', status: 'occupied', features: 'Forest view, Private balcony access', images: ['https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&q=80&w=600'] },
-      { id: 'l-r3', name: 'Bright room', price: null, charges: null, size: '12m²', available: 'Indefinite', status: 'occupied', features: 'Garden view', images: ['https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=600'] },
-    ]
-  },
-  {
     id: 'bertrange-apt',
     title: 'The Bertrange Garden Residence',
     location: 'Bertrange',
@@ -169,17 +135,57 @@ export const PROPERTIES = [
       'Underground Parking', 'Smart TV', 'Weekly Maid', 'Garden Furniture', 'BBQ', 
       'Washing Machine', 'Tumble Dryer', 'Floor Heating'
     ],
-    image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1000',
+    image: '/images/bertrange-apt-room2.jpg',
     images: [
-      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=1200'
+      '/images/bertrange-apt-main.jpg',
+      '/images/bertrange-apt-main2.jpg',
+      '/images/bertrange-apt-balcony.jpeg',
+      '/images/bertrange-apt-garden.jpeg',
+      '/images/bertrange-apt-corridor1.jpg',
+      '/images/bertrange-apt-corridor2.jpg',
     ],
     rooms: [
-      { id: 'b-r1', name: 'Bright room 1', price: 1000, charges: 150, size: '10m²', available: '2026-04-30', status: 'occupied', features: 'Street view', images: ['https://images.unsplash.com/photo-1616594039964-40891a909d93?auto=format&fit=crop&q=80&w=600', 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=80&w=600'] },
-      { id: 'b-r2', name: 'Bright room 2', price: null, charges: null, size: '10m²', available: 'Indefinite', status: 'occupied', features: 'Street view', images: ['https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&q=80&w=600'] },
-      { id: 'b-r3', name: 'Cosy room', price: null, charges: null, size: '13m²', available: 'Indefinite', status: 'occupied', features: 'Street view', images: ['https://images.unsplash.com/photo-1512918760530-772752699e9b?auto=format&fit=crop&q=80&w=600'] },
+      { id: 'b-r1', name: 'Bright room A', price: 1000, charges: 150, size: '10m²', available: '2026-05-01', status: 'available', features: 'Street view', images: ['/images/bertrange-apt-room1.jpeg'] },
+      { id: 'b-r2', name: 'Bright room B', price: null, charges: null, size: '10m²', available: 'Indefinite', status: 'occupied', features: 'Street view', images: ['/images/bertrange-apt-room2.jpg'] },
+      { id: 'b-r3', name: 'Cosy room', price: null, charges: null, size: '13m²', available: '2026-02-01', status: 'available', features: 'Street view', images: ['/images/bertrange-apt-room3.jpg'] },
+    ]
+  },
+  {
+    id: 'limp-apt',
+    title: 'Limpertsberg SkylineFlat',
+    location: 'Limpertsberg, Luxembourg City',
+    address: '342 Rue de Rollingergrund',
+    totalSpace: '118m² + 6m² balcony',
+    type: 'Apartment',
+    mapPos: { top: '38%', left: '48%' },
+    tags: ['City Central', 'Forest View', 'Bright & Spacious'],
+    description: 'A bright and spacious 5-bedroom apartment in the heart of Limpertsberg. Walking distance to Glacis and financial district.',
+    locationHighlights: [
+      { icon: 'Briefcase', text: "Walking distance to Big 4 firms" },
+      { icon: 'Bus', text: "1 min to Bus stop" },
+      { icon: 'Clock', text: "15 min walk to City Center" },
+      { icon: 'Trees', text: "Close to Parc de Merl" }
+    ],
+    amenities: [
+      '2Gbit speed fiber internet', '2 Balconies', 'Spacious Living Room', '2 Bathrooms', 'Laundry Room', 
+      'Smart TV', 'Weekly Maid', 'City View', 'Elevator', 'Bike Storage', 
+      'Dishwasher', 'Microwave', 'Oven'
+    ],
+    image: '/images/limpertsberg-apt-room4.JPG',
+    images: [
+      '/images/limpertsberg-apt-living.JPG',
+      '/images/limpertsberg-apt-kitchen.JPG',
+      '/images/limpertsberg-apt-balcony1.JPG',
+      '/images/limpertsberg-apt-balcony2.JPG',
+      '/images/limpertsberg-apt-bath1.JPG',
+      '/images/limpertsberg-apt-bath2.JPG',
+    ],
+    rooms: [
+      { id: 'l-r1', name: 'Bright room with private balcony', price: null, charges: null, size: '16.4m² + 3m² balcony', available: 'Indefinite', status: 'occupied', features: 'Garden view, Private balcony access', images: ['/images/limpertsberg-apt-room1.JPG'] },
+      { id: 'l-r2', name: 'Bright double room', price: null, charges: null, size: '12m²', available: 'Indefinite', status: 'occupied', features: 'Garden view', images: ['/images/limpertsberg-apt-room2.JPG'] },
+      { id: 'l-r3', name: 'Suite double room', price: null, charges: null, size: '14m²', available: 'Indefinite', status: 'occupied', features: 'Garden view, Private balcony access', images: ['/images/limpertsberg-apt-room3.JPG','/images/limpertsberg-apt-room3-2.JPG'] },
+      { id: 'l-r4', name: 'Spacious room with private balcony', price: null, charges: null, size: '19.2m² + 3m² balcony', available: 'Indefinite', status: 'occupied', features: 'Forest view, Private balcony access', images: ['/images/limpertsberg-apt-room4.JPG'] },
+      { id: 'l-r5', name: 'Cosy double room', price: null, charges: null, size: '12m²', available: 'Indefinite', status: 'occupied', features: 'Forest view', images: ['/images/limpertsberg-apt-room5.JPG','/images/limpertsberg-apt-room5-2.JPG'] },
     ]
   }
 ];

@@ -597,7 +597,7 @@ const PropertyMap = () => {
       <div className="relative w-full aspect-[16/9] md:aspect-[21/9] bg-slate-100 rounded-2xl overflow-hidden shadow-lg border border-slate-200">
         {/* Placeholder Map Image - User will replace this */}
         <img 
-          src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=2000" 
+          src="/images/map.png" 
           alt="Location Map" 
           className="w-full h-full object-cover"
         />
@@ -852,7 +852,7 @@ export default function App() {
         <main>
           {/* Hero Section */}
           <div className="bg-slate-900 text-white py-24 px-4 relative overflow-hidden">
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-40"></div>
+            <div className="absolute inset-0 bg-[url('/images/luxembourg.jpg')] bg-cover bg-center opacity-40"></div>
             <div className="relative max-w-7xl mx-auto text-center">
               <span className="inline-block py-1 px-3 rounded-full bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 text-sm font-semibold mb-6 animate-fade-in-up">
                 EXCLUSIVE COLIVING IN LUXEMBOURG
