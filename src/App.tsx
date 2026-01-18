@@ -867,7 +867,7 @@ export default function App() {
               {/* No Agency Fee Banner */}
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full mb-10 animate-fade-in-up delay-300">
                 <Shield className="w-5 h-5 text-emerald-400" />
-                <span className="font-semibold text-emerald-100">No Agency Fees — Rented Directly by Owners</span>
+                <span className="font-semibold text-emerald-100">No Agency Fees — Rented by Owners</span>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
@@ -1103,7 +1103,7 @@ export default function App() {
                 <span className="text-lg font-bold text-slate-900">LivingLux</span>
               </div>
               <div className="text-slate-500 text-sm">
-                © 2024 LivingLux Properties. All rights reserved.
+                © 2023 LivingLux Properties. All rights reserved.
               </div>
             </div>
           </footer>

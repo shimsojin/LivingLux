@@ -1,5 +1,7 @@
 // Centralized content for LivingLux — edit texts, images, addresses here.
 
+import { Trees } from "lucide-react";
+
 export const CORE_VALUES = [
   { icon: 'Heart', title: "Lifestyle Match", desc: "Curated homes designed to match the dynamic lifestyle of ambitious young professionals." },
   { icon: 'Key', title: "Move-in Ready", desc: "Fully furnished with style. Just bring your suitcase and feel at home from day one." },
@@ -25,11 +27,11 @@ export const FAQS = [
 ];
 
 export const GARAGES = [
-  { id: 'g1', name: 'High ceiling box garage', location: 'Limpertsberg', price: 350, status: 'available', size: '20m²', type: 'Box garage', image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&q=80&w=600' },
-  { id: 'g2', name: 'Box garage', location: 'Limpertsberg', price: 300, status: 'rented', size: '18m²', type: 'Box garage', image: 'https://images.unsplash.com/photo-1574360772709-67990b79dc35?auto=format&fit=crop&q=80&w=600' },
-  { id: 'g3', name: 'High ceiling box garage', location: 'Dommeldange Gare', price: 350, status: 'available', size: '20m²', type: 'Box garage', image: 'https://images.unsplash.com/photo-1621929747188-0b4dc28498d2?auto=format&fit=crop&q=80&w=600' },
-  { id: 'g4', name: 'Underground parking lot', location: 'Bertrange', price: 100, status: 'rented', size: '13m²', type: 'Indoor', image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&q=80&w=600' },
-  { id: 'g5', name: 'Private outdoor parking lot', location: 'Bertrange', price: 75, status: 'rented', size: '18m²', type: 'Outdoor', image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&q=80&w=600' },
+  { id: 'g1', name: 'High-ceiling box garage', location: 'Limpertsberg', price: 350, status: 'available', size: '20m²', type: 'Box garage', image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&q=80&w=600' },
+  { id: 'g2', name: 'Box garage', location: 'Limpertsberg', price: 300, status: 'rented', size: '18m²', type: 'Box garage', image: '/images/limpertsberg-apt-garage.JPG' },
+  { id: 'g3', name: 'High-ceiling box garage', location: 'Dommeldange Gare', price: 350, status: 'available', size: '20m²', type: 'Box garage', image: 'https://images.unsplash.com/photo-1621929747188-0b4dc28498d2?auto=format&fit=crop&q=80&w=600' },
+  { id: 'g4', name: 'Underground parking lot', location: 'Bertrange', price: 100, status: 'rented', size: '13m²', type: 'Indoor', image: '/images/bertrange-apt-garage-indoor.JPG' },
+  { id: 'g5', name: 'Private outdoor parking lot', location: 'Bertrange', price: 75, status: 'rented', size: '18m²', type: 'Outdoor', image: '/images/bertrange-apt-garage-outdoor.JPG' },
 ];
 
 export const PROPERTIES = [
@@ -44,15 +46,18 @@ export const PROPERTIES = [
     tags: ['High-end', '3 Floors', 'Spacious'],
     description: 'An expansive 3-story high-end house offering the ultimate coliving experience in the prestigious Limpertsberg district. Generous common areas and premium privacy.',
     locationHighlights: [
-      { icon: 'Bus', text: "2 min walk to Tram stop Place de l'Étoile" },
-      { icon: 'Briefcase', text: "15 min walk to City Center" },
-      { icon: 'Clock', text: "Quick access to Route d'Arlon" },
-      { icon: 'Trees', text: "Next to Parc de Merl" }
+      { icon: 'Briefcase', text: "20 min walk to City Centre" },
+      { icon: 'Bus', text: "1 min walk to the bus stop" },
+      { icon: 'Bus', text: "15 min direct bus to Kirchberg" },
+      { icon: 'Bus', text: "5 min bus ride to Place de l'Étoile" },
+      { icon: 'Clock', text: "Restaurants 2-10 min walk" },
+      { icon: 'Trees', text: "2min walk to Bambesch forest" }
     ],
     amenities: [
-      '2Gbit speed fiber internet', '3 Floors', 'Grand Kitchen', 'Home Cinema', 'Gym Area', 'Wine Cellar', 
-      'Weekly Maid', 'Washing Machine', 'Tumble Dryer', 'Dishwasher', 'Smart TV', 
-      'Fully Equipped Kitchen', 'Coffee Machine', 'Iron & Ironing Board', 'Bed Linen Provided'
+      'Fully furnished', '2Gbps fiber internet', 'Weekly professional cleaning', 'Common space more than 100m²',
+      '3 modern bathrooms', 'Smart TV', 'Smart lighting', 'Smart heating system', 'Washing Machine & Dryer', 
+      'Brand-new kitchen', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Coffee Machine & Toaster', 
+      'Iron & Ironing Board', 'Bed Linen Provided'
     ],
     image: '/images/limpertsberg-house-room22.jpg',
     images: [
@@ -86,15 +91,21 @@ export const PROPERTIES = [
     tags: ['3 Floors', 'Excellent Connection', 'Spacious'],
     description: 'A magnificent 3-story Grand Residence located in the quiet area of Dommeldange Gare. Close to the train station and Kirchberg, this property features 8 fully renovated rooms, a large common area, and beautiful forest views.',
     locationHighlights: [
-      { icon: 'Train', text: "Right next to Dommeldange Gare" },
-      { icon: 'Bus', text: "Direct bus to Kirchberg (150 min)" },
-      { icon: 'Trees', text: "Direct access to Grengewald forest trails" },
-      { icon: 'Clock', text: "8 min to Clausen nightlife" }
+      { icon: 'Train', text: "1 min walk to Dommeldange Gare" },
+      { icon: 'Train', text: "5 min direct train to Kirchberg (every 10 min)" },
+      { icon: 'Train', text: "10 min direct train to Luxembourg Gare (every 10 min)" },
+      { icon: 'Train', text: "15 min direct train to Cloche d'Or (every 10 min)" },
+      { icon: 'Bus', text: "1 min walk to the bus stop" },
+      { icon: 'Bus', text: "5 min direct bus to Kirchberg" },
+      { icon: 'Bus', text: "8 min direct bus to Hamilius" },
+      { icon: 'Trees', text: "Restaurant, cafe, grocery within 5 min walk" },
+      { icon: 'Clock', text: "5 min walk to the hospital" }
     ],
     amenities: [
-      '2Gbit speed fiber internet', '8 Bedrooms', 'Forest View', 'Large Kitchen', '3 Bathrooms', 
-      'Laundry Room', 'Weekly Maid', 'Garden/Terrace', 'BBQ Area', 'Bike Storage', 
-      'Dishwasher', 'Microwave', 'Oven', 'Coffee Machine'
+      'Fully furnished', '2Gbps fiber internet', 'Weekly professional cleaning', 'Common space more than 100m²', 
+      '3 modern bathrooms', 'Smart TV', 'Smart lighting', 'Smart heating system', 'Washing Machine & Dryer', 
+      'Brand-new kitchen', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Coffee Machine & Toaster', 
+      'Iron & Ironing Board', 'Bed Linen Provided'
     ],
     image: '/images/dommeldange-room12.JPG',
     images: [
@@ -126,15 +137,18 @@ export const PROPERTIES = [
     tags: ['High-end', 'Private Garden', 'Peaceful'],
     description: 'A luxurious apartment perfect for those seeking nature near the city. Features a stunning private garden and high-end finishes.',
     locationHighlights: [
-      { icon: 'Bus', text: "Direct bus to City Center (20 min)" },
-      { icon: 'Bus', text: "15 min to Cloche d'Or by bus" },
+      { icon: 'Bus', text: "1 min walk to the bus stop" },
+      { icon: 'Bus', text: "15 min direct bus to Hamilius (City Center)" },
+      { icon: 'Train', text: "3 min walk to Bertrange train station" },
+      { icon: 'Train', text: "5 min direct train to Luxembourg Gare" },
+      { icon: 'Clock', text: "5 min bus rides to 4 large supermarkets" },
       { icon: 'Trees', text: "Private garden access" },
-      { icon: 'Clock', text: "5 min to City Concorde Shopping Mall" }
+      { icon: 'Trees', text: "Quiet, green, and upscale residential area" }
     ],
     amenities: [
-      '2Gbit speed fiber internet', 'Private Garden', 'Large Balcony', 'High-end fully equipped Kitchen', 
-      'Underground Parking', 'Smart TV', 'Weekly Maid', 'Garden Furniture', 'BBQ', 
-      'Washing Machine', 'Tumble Dryer', 'Floor Heating'
+      'Fully furnished', '2Gbps fiber internet', 'Weekly professional cleaning', '2 modern bathrooms',
+      'Smart lighting', 'Smart heating system', 'Washing Machine & Dryer', 'High-end kitchen', 'Dining and Cooking sets', 
+      'Dishwasher', 'Large Fridge & Freezer', 'Coffee Machine & Toaster', 'Bed Linen Provided'
     ],
     image: '/images/bertrange-apt-room2.jpg',
     images: [
@@ -162,15 +176,18 @@ export const PROPERTIES = [
     tags: ['City Central', 'Forest View', 'Bright & Spacious'],
     description: 'A bright and spacious 5-bedroom apartment in the heart of Limpertsberg. Walking distance to Glacis and financial district.',
     locationHighlights: [
-      { icon: 'Briefcase', text: "Walking distance to Big 4 firms" },
-      { icon: 'Bus', text: "1 min to Bus stop" },
-      { icon: 'Clock', text: "15 min walk to City Center" },
-      { icon: 'Trees', text: "Close to Parc de Merl" }
+      { icon: 'Briefcase', text: "20 min walk to City Centre" },
+      { icon: 'Bus', text: "1 min walk to the bus stop" },
+      { icon: 'Bus', text: "15 min direct bus to Kirchberg" },
+      { icon: 'Bus', text: "5 min bus ride to Place de l'Étoile" },
+      { icon: 'Clock', text: "Restaurants 2-10 min walk" },
+      { icon: 'Trees', text: "2min walk to Bambesch forest" }
     ],
     amenities: [
-      '2Gbit speed fiber internet', '2 Balconies', 'Spacious Living Room', '2 Bathrooms', 'Laundry Room', 
-      'Smart TV', 'Weekly Maid', 'City View', 'Elevator', 'Bike Storage', 
-      'Dishwasher', 'Microwave', 'Oven'
+      'Fully furnished', '2Gbps fiber internet', 'Weekly professional cleaning', 
+      '2 modern bathrooms', 'Smart TV', 'Smart lighting', 'Smart heating system', 'Washing Machine & Dryer', 
+      'Fully equipped kitchen', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Coffee Machine & Toaster', 
+      'Iron & Ironing Board', 'Bed Linen Provided'
     ],
     image: '/images/limpertsberg-apt-room4.JPG',
     images: [
