@@ -121,9 +121,9 @@ export const PROPERTIES = [
       { id: 'h-r3', name: 'Standard Double C', price: 750, charges: 150, size: '13m²', available: '2026-04-01', status: 'available', features: '1st floor', images: ['/images/limpertsberg-house-room12.JPG'] },
       { id: 'h-r4', name: 'Grand Suite Double', price: 850, charges: 150, size: '18m²', available: '2026-04-01', status: 'available', features: '1st floor', images: ['/images/dommeldange-room12.JPG','/images/dommeldange-room12-2.JPG'] },
       { id: 'h-r5', name: 'Standard Double D', price: 750, charges: 150, size: '13m²', available: '2026-04-01', status: 'available', features: '1st floor', images: ['/images/limpertsberg-house-room12.JPG'] },
-      { id: 'h-r6', name: 'Suite Double A', price: 800, charges: 150, size: '16m²', available: '2026-04-15', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
-      { id: 'h-r7', name: 'Suite Double B', price: 800, charges: 150, size: '16m²', available: '2026-04-15', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
-      { id: 'h-r8', name: 'Suite Double C', price: 800, charges: 150, size: '16m²', available: '2026-04-15', status: 'available', features: '2nd floor, Skylight window', images: ['/images/limpertsberg-house-room23.JPG'] }
+      { id: 'h-r6', name: 'Suite Double A', price: 800, charges: 150, size: '16m²', available: '2026-04-16', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
+      { id: 'h-r7', name: 'Suite Double B', price: 800, charges: 150, size: '16m²', available: '2026-04-16', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
+      { id: 'h-r8', name: 'Suite Double C', price: 800, charges: 150, size: '16m²', available: '2026-04-16', status: 'available', features: '2nd floor, Skylight window', images: ['/images/limpertsberg-house-room23.JPG'] }
     ]
   },
   {
