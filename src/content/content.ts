@@ -89,7 +89,7 @@ export const PROPERTIES = [
     type: 'House',
     mapPos: { top: '25%', left: '75%' },
     tags: ['Excellent Connection', 'Spacious', 'To-be High-end'],
-    description: 'A magnificent three-storey Grand Residence located in the quiet area of Dommeldange Gare, just steps from the train station and with excellent access to Kirchberg and the city centre. The property offers eight rooms, a spacious common living area, and a private terrace, creating a comfortable and well-balanced coliving environment.\n\nWith multiple direct train and bus connections, commuting to Kirchberg, the city centre, or major business districts is fast and effortless.\n\nEach room is furnished with comfortable, nearly new furniture, including a double bed, dedicated work desk and chair, large mirrored wardrobe, bedside table, and smart lighting, allowing you to move in seamlessly from day one.\n\nThe community consists of young professionals in their mid-20s to mid-30s, in a mixed-gender environment, working at leading organisations such as Amazon, major banks, European institutions, and the public sector.\n\nThe house is currently undergoing continuous upgrades to its common areas and facilities. Rental pricing has been adjusted accordingly, and the room photos accurately represent the room you will receive upon arrival.\n\nCommune registration is included.',
+    description: 'A magnificent three-storey Grand Residence located in the quiet area of Dommeldange Gare, just steps from the train station and with excellent access to Kirchberg and the city centre. The property offers eight rooms, a spacious common living area, and a private terrace, creating a comfortable and well-balanced coliving environment.\n\nWith multiple direct train and bus connections, commuting to Kirchberg, the city centre, or major business districts is fast and effortless.\n\nEach room is furnished with comfortable, nearly new furniture, including a double bed, dedicated work desk and chair, large mirrored wardrobe, bedside table, and smart lighting, allowing you to move in seamlessly from day one.\n\nThe community consists of young professionals in their mid-20s to mid-30s, in a mixed-gender environment, working at leading organisations such as Amazon, major banks, European institutions, and the public sector.\n\nThe house is currently undergoing continuous upgrades to its common areas and facilities. Rental pricing has been adjusted considering the situation, and the price is applicable only for a short term.\n\n* The room photos only represent the expected room condition - layout and furnitures - you will receive upon arrival.\n\nCommune registration is included.',
     locationHighlights: [
       { icon: 'Train', text: "1 min walk to Dommeldange Gare" },
       { icon: 'Train', text: "5 min direct train to Kirchberg (every 10 min)" },
@@ -128,7 +128,7 @@ export const PROPERTIES = [
   },
   {
     id: 'bertrange-apt',
-    title: 'The Bertrange Garden Residence',
+    title: 'Bertrange Garden Residence',
     location: 'Bertrange',
     address: '67 rue de luxembourg, L-8077',
     totalSpace: '94m² + 5m² balcony + 180m² garden',
@@ -160,14 +160,14 @@ export const PROPERTIES = [
       '/images/bertrange-apt-corridor2.jpg',
     ],
     rooms: [
-      { id: 'b-r1', name: 'Bright room A', price: 1000, charges: 150, size: '10m²', available: '2026-05-01', status: 'available', features: 'Street view', images: ['/images/bertrange-apt-room1.jpeg'] },
-      { id: 'b-r2', name: 'Bright room B', price: null, charges: null, size: '10m²', available: 'Indefinite', status: 'occupied', features: 'Street view', images: ['/images/bertrange-apt-room2.jpg'] },
-      { id: 'b-r3', name: 'Cosy room', price: 1000, charges: 150, size: '13m²', available: '2026-02-01', status: 'available', features: 'Street view', images: ['/images/bertrange-apt-room3.jpg'] },
+      { id: 'b-r1', name: 'Bright double room A', price: null, charges: null, size: '10m²', available: 'Indefinite', status: 'occupied', features: 'Street view', images: ['/images/bertrange-apt-room1.jpeg'] },
+      { id: 'b-r2', name: 'Bright double room B', price: null, charges: null, size: '10m²', available: 'Indefinite', status: 'occupied', features: 'Street view', images: ['/images/bertrange-apt-room2.jpg'] },
+      { id: 'b-r3', name: 'Cosy double room', price: null, charges: null, size: '13m²', available: 'Indefinite', status: 'occupied', features: 'Street view', images: ['/images/bertrange-apt-room3.jpg'] },
     ]
   },
   {
     id: 'limp-apt',
-    title: 'Limpertsberg SkylineFlat',
+    title: 'Limpertsberg Apartment',
     location: 'Limpertsberg, Luxembourg City',
     address: '342 Rue de Rollingergrund',
     totalSpace: '118m² + 6m² balcony',
@@ -199,7 +199,7 @@ export const PROPERTIES = [
       '/images/limpertsberg-apt-bath2.jpeg',
     ],
     rooms: [
-      { id: 'l-r1', name: 'Bright room with private balcony', price: null, charges: null, size: '16.4m² + 3m² balcony', available: 'Indefinite', status: 'occupied', features: 'Garden view, Private balcony access', images: ['/images/limpertsberg-apt-room1.JPG'] },
+      { id: 'l-r1', name: 'Bright double room with private balcony', price: null, charges: null, size: '16.4m² + 3m² balcony', available: 'Indefinite', status: 'occupied', features: 'Garden view, Private balcony access', images: ['/images/limpertsberg-apt-room1.JPG'] },
       { id: 'l-r2', name: 'Bright double room', price: null, charges: null, size: '12m²', available: 'Indefinite', status: 'occupied', features: 'Garden view', images: ['/images/limpertsberg-apt-room2.jpeg'] },
       { id: 'l-r3', name: 'Suite double room', price: null, charges: null, size: '14m²', available: 'Indefinite', status: 'occupied', features: 'Garden view, Private balcony access', images: ['/images/limpertsberg-apt-room3.jpeg','/images/limpertsberg-apt-room3-2.jpeg'] },
       { id: 'l-r4', name: 'Spacious room with private balcony', price: null, charges: null, size: '19.2m² + 3m² balcony', available: 'Indefinite', status: 'occupied', features: 'Forest view, Private balcony access', images: ['/images/limpertsberg-apt-room4.JPG'] },

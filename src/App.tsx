@@ -13,6 +13,16 @@ import {
 import * as Icons from 'lucide-react';
 import { CORE_VALUES, HOUSE_RULES, FAQS, GARAGES, PROPERTIES } from './content/content';
 
+declare const __firebase_config: string | undefined;
+declare const __app_id: string | undefined;
+declare const __initial_auth_token: string | undefined;
+
+type ApplicationRecord = {
+  id: string;
+  createdAt?: { seconds?: number };
+  [key: string]: any;
+};
+
 // --- Firebase Configuration & Initialization ---
 const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
 const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
@@ -38,14 +48,14 @@ const getAvailabilitySummary = (rooms) => {
 
   const sortedDates = availableRooms
     .map(r => r.available)
-    .sort((a, b) => new Date(a) - new Date(b));
+    .sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
   
   const earliestDate = sortedDates[0];
   
   let dateDisplay = earliestDate;
   try {
     const dateObj = new Date(earliestDate);
-    if (!isNaN(dateObj)) {
+    if (!isNaN(dateObj.getTime())) {
       dateDisplay = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
     }
   } catch (e) {}
@@ -303,7 +313,7 @@ const AdminDashboard = ({ user, onClose }) => {
     if (!db) { setLoading(false); return; }
     const q = collection(db, 'artifacts', appId, 'public', 'data', 'applications');
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      const apps = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const apps = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as ApplicationRecord[];
       apps.sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
       setApplications(apps);
       setLoading(false);
@@ -382,11 +392,11 @@ const AdminDashboard = ({ user, onClose }) => {
   );
 };
 
-const ApplicationModal = ({ property, room, onClose }) => {
+const ApplicationModal = ({ property, room, onClose, onSuccess }) => {
   const [copied, setCopied] = useState(false);
   
   const handleCopy = () => {
-    navigator.clipboard.writeText("info@livinglux.lu");
+    navigator.clipboard.writeText("livinglux.lu@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -411,7 +421,7 @@ const ApplicationModal = ({ property, room, onClose }) => {
         <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8 text-center">
              <p className="text-sm text-slate-500 mb-2">Send your application to:</p>
              <div className="flex items-center justify-center gap-2 bg-white px-4 py-3 rounded-lg border border-slate-200 shadow-sm">
-                <span className="font-bold text-lg text-slate-800 select-all">info@livinglux.lu</span>
+                <span className="font-bold text-lg text-slate-800 select-all">livinglux.lu@gmail.com</span>
                 <button onClick={handleCopy} className="p-1.5 hover:bg-slate-100 rounded-md transition-colors text-slate-500">
                     {copied ? <CheckCircle className="w-5 h-5 text-emerald-500" /> : <Copy className="w-5 h-5" />}
                 </button>
@@ -460,8 +470,11 @@ const RoomCard = ({ room, property, onApply, onImageClick }) => {
   return (
     <div className={`group relative bg-white border border-slate-100 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-emerald-100 ${!isAvailable ? 'opacity-75 grayscale-[0.5]' : ''}`}>
       <div 
-        className="h-48 overflow-hidden relative group/image cursor-zoom-in" 
-        onClick={() => onImageClick(images, currentImgIdx)}
+        className={`h-48 overflow-hidden relative group/image ${isAvailable ? 'cursor-zoom-in' : 'cursor-default'}`}
+        onClick={() => {
+          if (!isAvailable) return;
+          onImageClick(images, currentImgIdx);
+        }}
       >
         <img src={images[currentImgIdx]} alt={room.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         {!isAvailable && (
@@ -547,8 +560,8 @@ const ContactInfoSection = () => {
             <Mail className="w-8 h-8" />
           </div>
           <h4 className="text-lg font-bold text-slate-900">Email</h4>
-          <a href="mailto:info@livinglux.lu" className="text-emerald-600 text-lg font-medium hover:underline">
-            info@livinglux.lu
+          <a href="mailto:livinglux.lu@gmail.com" className="text-emerald-600 text-lg font-medium hover:underline">
+            livinglux.lu@gmail.com
           </a>
         </div>
         
@@ -741,6 +754,7 @@ export default function App() {
               {/* Left: Info */}
               <div className="lg:col-span-2 space-y-12">
                 <section>
+                  <p className="text-sm text-slate-500 mb-2">If you want to enlarge the property photos, click on the images.</p>
                   <h2 className="text-2xl font-bold mb-4 text-slate-900">About this property</h2>
                   <div className="text-lg text-slate-600 leading-relaxed space-y-4">
                     {String(selectedProperty.description || '').split(/\n+/).map((para, idx) => (
@@ -814,7 +828,7 @@ export default function App() {
                   <h3 className="text-xl font-bold mb-4">Interested in viewing?</h3>
                   <p className="text-slate-600 mb-6">
                     Please <strong>apply now</strong> directly for a specific room to schedule a viewing. 
-                    For any questions, feel free to email us at <a href="mailto:info@livinglux.lu" className="text-emerald-600 hover:underline">info@livinglux.lu</a>.
+                    For any questions, feel free to email us at <a href="mailto:livinglux.lu@gmail.com" className="text-emerald-600 hover:underline">livinglux.lu@gmail.com</a>.
                   </p>
                   
                   <div className="space-y-4">
@@ -833,7 +847,7 @@ export default function App() {
                       </div>
                       <div>
                         <div className="text-xs font-semibold uppercase text-slate-400">Email</div>
-                        <div className="font-medium">info@livinglux.lu</div>
+                        <div className="font-medium">livinglux.lu@gmail.com</div>
                       </div>
                     </div>
                   </div>
