@@ -792,7 +792,14 @@ export default function App() {
                     </span>
                   </h2>
                   <div className="grid md:grid-cols-2 gap-6">
-                    {selectedProperty.rooms.map(room => (
+                    {selectedProperty.rooms
+                      .slice()
+                      .sort((a, b) => {
+                        const aAvail = a.status === 'available' ? 0 : 1;
+                        const bAvail = b.status === 'available' ? 0 : 1;
+                        return aAvail - bAvail;
+                      })
+                      .map(room => (
                       <RoomCard 
                         key={room.id} 
                         room={room} 
