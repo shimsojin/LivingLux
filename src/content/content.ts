@@ -56,8 +56,8 @@ export const PROPERTIES = [
     amenities: [
       'Fully furnished', '2Gbps fiber internet', 'Weekly professional cleaning', 'Common space more than 100m²',
       '3 modern bathrooms', 'Smart TV', 'Smart lighting', 'Smart heating system', 'Washing Machine & Dryer', 
-      'Brand-new kitchen', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Coffee Machine & Toaster', 
-      'Iron & Ironing Board', 'Bed Linen Provided'
+      'Brand-new kitchen', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Oven', 'Microwave', 
+      'Air Fryer', 'Coffee Machine & Toaster', 'Iron & Ironing Board', 'Bed Linen Provided'
     ],
     image: '/images/limpertsberg-house-room22.jpg',
     images: [
@@ -104,8 +104,8 @@ export const PROPERTIES = [
     amenities: [
       'Fully furnished', '2Gbps fiber internet', 'Weekly professional cleaning', 'Common space more than 100m²', 
       '3 modern bathrooms', 'Smart TV', 'Smart lighting', 'Smart heating system', 'Shutter with solar panel', 'Washing Machine & Dryer', 
-      'Brand-new kitchen', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Coffee Machine & Toaster', 
-      'Iron & Ironing Board', 'Bed Linen Provided'
+      'Brand-new kitchen', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Oven', 'Microwave', 'Air Fryer', 
+      'Coffee Machine & Toaster', 'Iron & Ironing Board', 'Bed Linen Provided'
     ],
     image: '/images/dommeldange-room12.JPG',
     images: [
@@ -148,7 +148,7 @@ export const PROPERTIES = [
     amenities: [
       'Fully furnished', '2Gbps fiber internet', 'Weekly professional cleaning', '2 modern bathrooms',
       'Smart lighting', 'Smart heating system', 'Electronic shutters', 'Washing Machine & Dryer', 'High-end kitchen', 
-      'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Coffee Machine & Toaster', 'Bed Linen Provided'
+      'Oven', 'Microwave', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Coffee Machine & Toaster', 'Bed Linen Provided'
     ],
     image: '/images/bertrange-apt-room2.jpg',
     images: [
@@ -187,7 +187,7 @@ export const PROPERTIES = [
       'Fully furnished', '2Gbps fiber internet', 'Weekly professional cleaning', 
       '2 modern bathrooms', 'Smart TV', 'Smart lighting', 'Smart heating system', 'Shutter with solar panel',
       'Washing Machine & Dryer', 'Fully equipped kitchen', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 
-      'Coffee Machine & Toaster', 'Iron & Ironing Board', 'Bed Linen Provided'
+      'Oven', 'Microwave', 'Coffee Machine & Toaster', 'Iron & Ironing Board', 'Bed Linen Provided'
     ],
     image: '/images/limpertsberg-apt-room4.JPG',
     images: [
