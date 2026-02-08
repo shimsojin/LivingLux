@@ -1013,11 +1013,17 @@ export default function App() {
             <div className="grid md:grid-cols-3 gap-6">
               {GARAGES.map((garage) => (
                 <div key={garage.id} className={`bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col ${garage.status !== 'available' ? 'opacity-70' : ''}`}>
-                  <div className="h-48 overflow-hidden relative">
+                  <div 
+                    className={`h-48 overflow-hidden relative group/image ${garage.status === 'available' ? 'cursor-zoom-in' : 'cursor-default'}`}
+                    onClick={() => {
+                      if (garage.status !== 'available') return;
+                      openLightbox([garage.image], 0);
+                    }}
+                  >
                     <img 
                       src={garage.image} 
                       alt={garage.name} 
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover/image:scale-105"
                     />
                     {garage.status !== 'available' && (
                       <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
@@ -1041,21 +1047,38 @@ export default function App() {
                       </div>
                     </div>
                     
-                    <div className="flex justify-between items-center mb-6 mt-auto">
-                      <div className="text-sm text-slate-600">{garage.size}</div>
-                      <div className="font-bold text-emerald-600 text-lg">€{garage.price}<span className="text-xs font-normal text-slate-400">/mo</span></div>
+                    <div className="space-y-2 mb-6">
+                      <div className="flex items-center gap-2 text-sm text-slate-600">
+                        <LayoutGrid className="w-4 h-4" />
+                        <span>{garage.size}</span>
+                      </div>
+                      <div className={`flex items-center gap-2 text-sm font-medium ${garage.status === 'available' ? 'text-emerald-600' : 'text-amber-600'}`}>
+                        <Calendar className="w-4 h-4" />
+                        <span>{garage.status === 'available' ? `Available: ${garage.available}` : 'Currently Rented'}</span>
+                      </div>
+                    </div>
+
+                    <div className="text-right flex flex-col items-end mb-6 mt-auto">
+                      {garage.status === 'available' ? (
+                        <div>
+                          <span className="font-bold text-emerald-600 text-xl">€{garage.price}</span>
+                          <span className="text-xs text-slate-400 ml-1">/month</span>
+                        </div>
+                      ) : (
+                        <div className="font-bold text-slate-400 text-lg">Rented</div>
+                      )}
                     </div>
 
                     <button 
                       disabled={garage.status !== 'available'}
                       onClick={() => setApplyingFor({ property: { title: 'Garage Rental', id: 'garage' }, room: { name: garage.name, id: garage.id } })}
-                      className={`w-full py-2 rounded-lg font-semibold text-sm transition-all ${
+                      className={`w-full py-3 px-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all ${
                         garage.status === 'available'
-                          ? 'bg-slate-900 text-white hover:bg-emerald-600'
+                          ? 'bg-slate-900 text-white hover:bg-emerald-600 shadow-md hover:shadow-lg'
                           : 'bg-slate-100 text-slate-400 cursor-not-allowed'
                       }`}
                     >
-                      {garage.status === 'available' ? 'Apply Now' : 'Rented'}
+                      {garage.status === 'available' ? 'Apply Now' : 'Currently Rented'}
                     </button>
                   </div>
                 </div>
