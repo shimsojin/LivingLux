@@ -506,7 +506,7 @@ const RoomCard = ({ room, property, onApply, onImageClick }) => {
             </div>
           </div>
           <div className="text-right flex flex-col items-end">
-            {room.price ? (
+            {isAvailable ? (
               <>
                 <div>
                   <span className="font-bold text-emerald-600 text-xl">€{room.price}</span>

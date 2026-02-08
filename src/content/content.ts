@@ -27,7 +27,7 @@ export const FAQS = [
 ];
 
 export const GARAGES = [
-  { id: 'g1', name: 'High-ceiling box garage', location: 'Limpertsberg', price: 350, status: 'available', size: '20m²', type: 'Box garage', utilitiesConnected: true, image: '/images/limpertsberg-apt-garage.jpg' },
+  { id: 'g1', name: 'High-ceiling box garage', location: 'Limpertsberg', price: 350, status: 'available', size: '20m²', type: 'Box garage', utilitiesConnected: true, image: '/images/limpertsberg-house-garage.jpg' },
   { id: 'g2', name: 'Box garage', location: 'Limpertsberg', price: 300, status: 'rented', size: '18m²', type: 'Box garage', utilitiesConnected: true, image: '/images/limpertsberg-apt-garage.JPG' },
   { id: 'g3', name: 'High-ceiling box garage', location: 'Dommeldange Gare', price: 350, status: 'available', size: '20m²', type: 'Box garage', utilitiesConnected: true, image: '/images/dommeldange-garage.JPG' },
   { id: 'g4', name: 'Underground parking lot', location: 'Bertrange', price: 100, status: 'rented', size: '13m²', type: 'Indoor', utilitiesConnected: false, image: '/images/bertrange-apt-garage-indoor.JPG' },
@@ -73,7 +73,7 @@ export const PROPERTIES = [
     rooms: [
       { id: 'h-r1', name: 'Standard Double A', price: null, charges: null, size: '13m²', available: 'Indefinite', status: 'occupied', features: 'Ground floor, Dedicated WC', images: ['/images/limpertsberg-house-room10.JPG','/images/limpertsberg-house-room10-2.JPG'] },
       { id: 'h-r2', name: 'Standard Double B', price: null, charges: null, size: '13m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room11.JPG','/images/limpertsberg-house-room11-2.JPG'] },
-      { id: 'h-r3', name: 'Suite Double A', price: 1100, charges: 150, size: '16m²', available: '2026-03-01', status: 'available', features: '1st floor', images: ['/images/limpertsberg-house-room12.JPG'] },
+      { id: 'h-r3', name: 'Suite Double A', price: 1050, charges: 150, size: '16m²', available: '2026-03-01', status: 'available', features: '1st floor', images: ['/images/limpertsberg-house-room12.JPG'] },
       { id: 'h-r4', name: 'Mini Double A', price: null, charges: null, size: '11m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room13.jpg','/images/limpertsberg-house-room13-2.jpg'] },
       { id: 'h-r5', name: 'Suite Double B', price: null, charges: null, size: '15m²', available: 'Indefinite', status: 'occupied', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
       { id: 'h-r6', name: 'Suite Double C', price: 1050, charges: 150, size: '16m²', available: 'Indefinite', status: 'occupied', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
