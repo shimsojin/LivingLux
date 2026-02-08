@@ -27,11 +27,11 @@ export const FAQS = [
 ];
 
 export const GARAGES = [
-  { id: 'g1', name: 'High-ceiling box garage', location: 'Limpertsberg', price: 350, status: 'available', size: '20m²', type: 'Box garage', utilitiesConnected: true, image: '/images/limpertsberg-house-garage.jpg' },
-  { id: 'g2', name: 'Box garage', location: 'Limpertsberg', price: 300, status: 'rented', size: '18m²', type: 'Box garage', utilitiesConnected: true, image: '/images/limpertsberg-apt-garage.JPG' },
-  { id: 'g3', name: 'High-ceiling box garage', location: 'Dommeldange Gare', price: 350, status: 'available', size: '20m²', type: 'Box garage', utilitiesConnected: true, image: '/images/dommeldange-garage.JPG' },
-  { id: 'g4', name: 'Underground parking lot', location: 'Bertrange', price: 100, status: 'rented', size: '13m²', type: 'Indoor', utilitiesConnected: false, image: '/images/bertrange-apt-garage-indoor.JPG' },
-  { id: 'g5', name: 'Private outdoor parking lot', location: 'Bertrange', price: 75, status: 'rented', size: '18m²', type: 'Outdoor', utilitiesConnected: false, image: '/images/bertrange-apt-garage-outdoor.JPG' },
+  { id: 'g1', name: 'High-ceiling box garage', location: 'Limpertsberg, Luxembourg City', price: 350, status: 'available', size: '20m²', type: 'Box garage', utilitiesConnected: true, image: '/images/limpertsberg-house-garage.jpg' },
+  { id: 'g2', name: 'Box garage', location: 'Limpertsberg, Luxembourg City', price: 300, status: 'rented', size: '18m²', type: 'Box garage', utilitiesConnected: true, image: '/images/limpertsberg-apt-garage.JPG' },
+  { id: 'g3', name: 'High-ceiling box garage', location: 'Dommeldange Gare, Luxembourg City', price: 350, status: 'available', size: '20m²', type: 'Box garage', utilitiesConnected: true, image: '/images/dommeldange-garage.JPG' },
+  { id: 'g4', name: 'Underground parking lot', location: 'Bertrange, Luxembourg', price: 100, status: 'rented', size: '13m²', type: 'Indoor', utilitiesConnected: false, image: '/images/bertrange-apt-garage-indoor.JPG' },
+  { id: 'g5', name: 'Private outdoor parking lot', location: 'Bertrange, Luxembourg', price: 75, status: 'rented', size: '18m²', type: 'Outdoor', utilitiesConnected: false, image: '/images/bertrange-apt-garage-outdoor.JPG' },
 ];
 
 export const PROPERTIES = [
