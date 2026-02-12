@@ -73,7 +73,7 @@ export const PROPERTIES = [
     rooms: [
       { id: 'h-r1', name: 'Standard Double A', price: null, charges: null, size: '13m²', available: 'Indefinite', status: 'occupied', features: 'Ground floor, Dedicated WC', images: ['/images/limpertsberg-house-room10.JPG','/images/limpertsberg-house-room10-2.JPG'] },
       { id: 'h-r2', name: 'Standard Double B', price: null, charges: null, size: '13m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room11.JPG','/images/limpertsberg-house-room11-2.JPG'] },
-      { id: 'h-r3', name: 'Suite Double A', price: 1050, charges: 150, size: '16m²', available: '2026-03-01', status: 'available', features: '1st floor', images: ['/images/limpertsberg-house-room12.JPG'] },
+      { id: 'h-r3', name: 'Suite Double A', price: 1050, charges: 150, size: '16m²', aavailable: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room12.JPG'] },
       { id: 'h-r4', name: 'Mini Double A', price: null, charges: null, size: '11m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room13.jpg','/images/limpertsberg-house-room13-2.jpg'] },
       { id: 'h-r5', name: 'Suite Double B', price: null, charges: null, size: '15m²', available: 'Indefinite', status: 'occupied', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
       { id: 'h-r6', name: 'Suite Double C', price: 1050, charges: 150, size: '16m²', available: 'Indefinite', status: 'occupied', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
@@ -89,7 +89,7 @@ export const PROPERTIES = [
     type: 'House',
     mapPos: { top: '25%', left: '75%' },
     tags: ['Excellent Connection', 'Spacious', 'To-be High-end'],
-    description: 'A magnificent three-storey Grand Residence located in the quiet area of Dommeldange Gare, just steps from the train station and with excellent access to Kirchberg and the city centre. The property offers eight rooms, a spacious common living area, and a private terrace, creating a comfortable and well-balanced coliving environment.\n\nWith multiple direct train and bus connections, commuting to Kirchberg, the city centre, or major business districts is fast and effortless.\n\nEach room is furnished with comfortable, nearly new furniture, including a double bed, dedicated work desk and chair, large mirrored wardrobe, bedside table, and smart lighting, allowing you to move in seamlessly from day one.\n\nThe community consists of young professionals in their mid-20s to mid-30s, in a mixed-gender environment, working at leading organisations such as Amazon, major banks, European institutions, and the public sector.\n\nThe house is currently undergoing continuous upgrades to its common areas and facilities. Rental pricing has been adjusted considering the situation, and the price is applicable only for a short term.\n\n* The room photos only represent the expected room condition - layout and furnitures - you will receive upon arrival.\n\nCommune registration is included.',
+    description: 'A magnificent three-storey Grand Residence located in the quiet area of Dommeldange Gare, just steps from the train station and with excellent access to Kirchberg and the city centre. The property offers eight rooms, a spacious common living area, and a private terrace, creating a comfortable and well-balanced coliving environment.\n\nWith multiple direct train and bus connections, commuting to Kirchberg, the city centre, or major business districts is fast and effortless.\n\nEach room is furnished with comfortable, nearly new furniture, including a double bed, dedicated work desk and chair, large mirrored wardrobe, bedside table, and smart lighting, allowing you to move in seamlessly from day one.\n\nThe community consists of young professionals in their mid-20s to mid-30s, in a mixed-gender environment, working at leading organisations such as Amazon, major banks, European institutions, and the public sector.\n\nThe house is currently undergoing continuous upgrades to its common areas and facilities. Rental pricing has been adjusted considering the situation, and the price is applicable only for the first two months.\n\n* The room photos only represent the expected room condition - layout and furnitures - you will receive upon arrival.\n\nCommune registration is included.',
     locationHighlights: [
       { icon: 'Train', text: "1 min walk to Dommeldange Gare" },
       { icon: 'Train', text: "5 min direct train to Kirchberg (every 10 min)" },
@@ -103,8 +103,8 @@ export const PROPERTIES = [
     ],
     amenities: [
       'Fully furnished', '2Gbps fiber internet', 'Weekly professional cleaning', 'Common space more than 100m²', 
-      '3 modern bathrooms', 'Smart TV', 'Smart lighting', 'Smart heating system', 'Shutter with solar panel', 'Washing Machine & Dryer', 
-      'Brand-new kitchen', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Oven', 'Microwave', 'Air Fryer', 
+      '3 modern bathrooms', 'Smart TV', 'Smart lighting', 'Smart heating system', 'Shutter', 'Washing Machine & Dryer', 
+      'Brand-new kitchen to be delivered', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Oven', 'Microwave', 'Air Fryer', 
       'Coffee Machine & Toaster', 'Iron & Ironing Board', 'Bed Linen Provided'
     ],
     image: '/images/dommeldange-room12.JPG',
@@ -116,14 +116,14 @@ export const PROPERTIES = [
     ],
 
     rooms: [
-      { id: 'h-r1', name: 'Standard Double A', price: 700, charges: 150, size: '13m²', available: '2026-04-01', status: 'available', features: 'Ground floor', images: ['/images/limpertsberg-house-room10.JPG','/images/limpertsberg-house-room10-2.JPG'] },
-      { id: 'h-r2', name: 'Standard Double B', price: 700, charges: 150, size: '13m²', available: '2026-04-01', status: 'available', features: 'Ground floor', images: ['/images/limpertsberg-house-room10.JPG','/images/limpertsberg-house-room10-2.JPG'] },
-      { id: 'h-r3', name: 'Standard Double C', price: 750, charges: 150, size: '13m²', available: '2026-04-01', status: 'available', features: '1st floor', images: ['/images/limpertsberg-house-room12.JPG'] },
-      { id: 'h-r4', name: 'Grand Suite Double', price: 850, charges: 150, size: '18m²', available: '2026-04-01', status: 'available', features: '1st floor', images: ['/images/dommeldange-room12.JPG','/images/dommeldange-room12-2.JPG'] },
-      { id: 'h-r5', name: 'Standard Double D', price: 750, charges: 150, size: '13m²', available: '2026-04-01', status: 'available', features: '1st floor', images: ['/images/limpertsberg-house-room12.JPG'] },
-      { id: 'h-r6', name: 'Suite Double A', price: 800, charges: 150, size: '16m²', available: '2026-04-16', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
-      { id: 'h-r7', name: 'Suite Double B', price: 800, charges: 150, size: '16m²', available: '2026-04-16', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
-      { id: 'h-r8', name: 'Suite Double C', price: 800, charges: 150, size: '16m²', available: '2026-04-16', status: 'available', features: '2nd floor, Skylight window', images: ['/images/limpertsberg-house-room23.JPG'] }
+      { id: 'h-r1', name: 'Standard Double A', price: 700, charges: 150, size: '13m²', available: '2026-03-21', status: 'available', features: 'Ground floor', images: ['/images/limpertsberg-house-room10.JPG','/images/limpertsberg-house-room10-2.JPG'] },
+      { id: 'h-r2', name: 'Standard Double B', price: 700, charges: 150, size: '13m²', available: '2026-03-21', status: 'available', features: 'Ground floor', images: ['/images/limpertsberg-house-room10.JPG','/images/limpertsberg-house-room10-2.JPG'] },
+      { id: 'h-r3', name: 'Standard Double C', price: 750, charges: 150, size: '13m²', available: '2026-03-21', status: 'available', features: '1st floor', images: ['/images/limpertsberg-house-room12.JPG'] },
+      { id: 'h-r4', name: 'Grand Suite Double', price: 850, charges: 150, size: '18m²', available: '2026-03-21', status: 'available', features: '1st floor', images: ['/images/dommeldange-room12.JPG','/images/dommeldange-room12-2.JPG'] },
+      { id: 'h-r5', name: 'Standard Double D', price: 750, charges: 150, size: '13m²', available: '2026-03-21', status: 'available', features: '1st floor', images: ['/images/limpertsberg-house-room12.JPG'] },
+      { id: 'h-r6', name: 'Suite Double A', price: 800, charges: 150, size: '16m²', available: '2026-04-05', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
+      { id: 'h-r7', name: 'Suite Double B', price: 800, charges: 150, size: '16m²', available: '2026-04-05', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
+      { id: 'h-r8', name: 'Suite Double C', price: 800, charges: 150, size: '16m²', available: '2026-04-05', status: 'available', features: '2nd floor, Skylight window', images: ['/images/limpertsberg-house-room23.JPG'] }
     ]
   },
   {
