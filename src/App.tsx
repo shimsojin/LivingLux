@@ -922,7 +922,13 @@ export default function App() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-              {PROPERTIES.map((prop, idx) => {
+              {PROPERTIES.slice()
+                .sort((a, b) => {
+                  const aAvail = getAvailabilitySummary(a.rooms).count;
+                  const bAvail = getAvailabilitySummary(b.rooms).count;
+                  return bAvail - aAvail;
+                })
+                .map((prop, idx) => {
                 const availability = getAvailabilitySummary(prop.rooms);
                 
                 return (
