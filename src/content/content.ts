@@ -62,7 +62,7 @@ export const PROPERTIES = [
     image: '/images/limpertsberg-house-room22.jpg',
     images: [
       '/images/limpertsberg-house-main.jpg',
-      '/images/limpertsberg-house-living.JPG',
+      '/images/limpertsberg-house-living.jpg',
       '/images/limpertsberg-house-kitchen.JPG',
       '/images/limpertsberg-house-bath1.jpg',
       '/images/limpertsberg-house-bath2.jpg',
