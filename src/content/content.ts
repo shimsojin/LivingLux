@@ -92,8 +92,8 @@ export const PROPERTIES = [
     description: 'A magnificent three-storey Grand Residence located in the quiet area of Dommeldange Gare, just steps from the train station and with excellent access to Kirchberg and the city centre. The property offers eight rooms, a spacious common living area, and a private terrace, creating a comfortable and well-balanced coliving environment.\n\nWith multiple direct train and bus connections, commuting to Kirchberg, the city centre, or major business districts is fast and effortless.\n\nEach room is furnished with comfortable, nearly new furniture, including a double bed, dedicated work desk and chair, large mirrored wardrobe, bedside table, and smart lighting, allowing you to move in seamlessly from day one.\n\nThe community consists of young professionals in their mid-20s to mid-30s, in a mixed-gender environment, working at leading organisations such as Amazon, major banks, European institutions, and the public sector.\n\nThe house is currently undergoing continuous upgrades to its common areas and facilities. Rental pricing has been adjusted considering the situation, and the price is applicable only for the first two months.\n\n* The room photos only represent the expected room condition - layout and furnitures - you will receive upon arrival.\n\nCommune registration is included.',
     locationHighlights: [
       { icon: 'Train', text: "1 min walk to Dommeldange Gare" },
-      { icon: 'Train', text: "5 min direct train to Kirchberg (every 10 min)" },
-      { icon: 'Train', text: "10 min direct train to Luxembourg Gare (every 10 min)" },
+      { icon: 'Train', text: "2 min direct train to Kirchberg (every 10 min)" },
+      { icon: 'Train', text: "8 min direct train to Luxembourg Gare (every 10 min)" },
       { icon: 'Train', text: "15 min direct train to Cloche d'Or (every 10 min)" },
       { icon: 'Bus', text: "1 min walk to the bus stop" },
       { icon: 'Bus', text: "5 min direct bus to Kirchberg" },
@@ -121,9 +121,9 @@ export const PROPERTIES = [
       { id: 'h-r3', name: 'Standard Double C', price: 750, charges: 150, size: '13m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room11.JPG'] },
       { id: 'h-r4', name: 'Grand Suite Double', price: 850, charges: 150, size: '18m²', available: '2026-03-21', status: 'available', features: '1st floor', images: ['/images/dommeldange-room12.JPG','/images/dommeldange-room12-2.JPG'] },
       { id: 'h-r5', name: 'Standard Double D', price: 750, charges: 150, size: '13m²', available: '2026-03-21', status: 'available', features: '1st floor', images: ['/images/limpertsberg-house-room10.JPG'] },
-      { id: 'h-r6', name: 'Suite Double A', price: 800, charges: 150, size: '16m²', available: '2026-04-05', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
-      { id: 'h-r7', name: 'Suite Double B', price: 800, charges: 150, size: '16m²', available: '2026-04-05', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
-      { id: 'h-r8', name: 'Suite Double C', price: 800, charges: 150, size: '16m²', available: '2026-04-05', status: 'available', features: '2nd floor, Skylight window', images: ['/images/limpertsberg-house-room23.JPG'] }
+      { id: 'h-r6', name: 'Suite Double A', price: 800, charges: 150, size: '16m²', available: '2026-03-21', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
+      { id: 'h-r7', name: 'Suite Double B', price: 800, charges: 150, size: '16m²', available: '2026-03-21', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
+      { id: 'h-r8', name: 'Suite Double C', price: 800, charges: 150, size: '16m²', available: '2026-03-21', status: 'available', features: '2nd floor, Skylight window', images: ['/images/limpertsberg-house-room23.JPG'] }
     ]
   },
   {
