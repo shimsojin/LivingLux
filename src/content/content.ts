@@ -40,7 +40,7 @@ export const PROPERTIES = [
     title: 'Limpertsberg Grand Residence',
     location: 'Limpertsberg, Luxembourg City',
     address: '365 rue de rollingergrund',
-    totalSpace: '200m² + 5m² backyard',
+    totalSpace: '200m² + 10m² backyard',
     type: 'House',
     mapPos: { top: '45%', left: '42%' },
     tags: ['Central', 'High-end', 'Spacious'],
