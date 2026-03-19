@@ -552,7 +552,7 @@ const ContactInfoSection = () => {
             <Phone className="w-8 h-8" />
           </div>
           <h4 className="text-lg font-bold text-slate-900">Phone / WhatsApp</h4>
-          <p className="text-slate-600 text-lg font-medium">+352 661 841 915</p>
+          <p className="text-slate-600 text-lg font-medium">+352 691 661 841</p>
         </div>
         
         <div className="flex flex-col items-center gap-4">
@@ -845,7 +845,7 @@ export default function App() {
                       </div>
                       <div>
                         <div className="text-xs font-semibold uppercase text-slate-400">WhatsApp / Call</div>
-                        <div className="font-medium">+352 661 841 915</div>
+                        <div className="font-medium">+352 691 661 841</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3 text-slate-600">
