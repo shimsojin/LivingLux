@@ -1166,7 +1166,7 @@ export default function App() {
                 <span className="text-lg font-bold text-slate-900">LivingLux</span>
               </div>
               <div className="text-slate-500 text-sm">
-                © 2025 LivingLux Properties. All rights reserved.
+                © 2026 LivingLux Properties. All rights reserved.
               </div>
             </div>
           </footer>
