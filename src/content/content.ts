@@ -103,9 +103,9 @@ export const PROPERTIES = [
     ],
     amenities: [
       'Fully furnished', '2Gbps fiber internet', 'Weekly professional cleaning', 'Common space more than 100m²', 
-      '3 modern bathrooms', 'Smart TV', 'Smart lighting', 'Smart heating system', 'Shutter', 'Washing Machine & Dryer', 
-      'Brand-new kitchen to be delivered', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Oven', 'Microwave', 'Air Fryer', 
-      'Coffee Machine & Toaster', 'Iron & Ironing Board', 'Bed Linen Provided'
+      '3 modern bathrooms (1 to be delivered)', 'Smart TV', 'Smart lighting', 'Smart heating system', 'Shutter', 'Washing Machine & Dryer', 
+      'Brand-new kitchen to be delivered', 'Dining and Cooking sets', 'Dishwasher', '2 Fridge & Freezer', 'Oven', 'Microwave', 'Air Fryer', 
+      'Coffee Machine & Kettle', 'Toaster', 'Iron & Ironing Board', 'Bed Linen Provided'
     ],
     image: '/images/dommeldange-room12.JPG',
     images: [
@@ -117,14 +117,14 @@ export const PROPERTIES = [
 
     rooms: [
       { id: 'h-r1', name: 'Standard Double A', price: 700, charges: 150, size: '13m²', available: 'Indefinite', status: 'occupied', features: 'Ground floor', images: ['/images/limpertsberg-house-room11.JPG','/images/limpertsberg-house-room10-2.JPG'] },
-      { id: 'h-r2', name: 'Standard Double B', price: 750, charges: 150, size: '15m²', available: 'Indefinite', status: 'occupied', features: 'Ground floor', images: ['/images/limpertsberg-house-room10.JPG','/images/limpertsberg-house-room10-2.JPG'] },
-      { id: 'h-r3', name: 'Standard Double C', price: 750, charges: 150, size: '13m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room11.JPG'] },
-      { id: 'h-r4', name: 'Grand Suite Double', price: 850, charges: 150, size: '18m²', available: 'Indefinite', status: 'occupied', features: '1st floor, Dual windows', images: ['/images/dommeldange-room12.JPG','/images/dommeldange-room12-2.JPG'] },
-      { id: 'h-r5', name: 'Standard Double D', price: 750, charges: 150, size: '13m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room10.JPG'] },
-      { id: 'h-r6', name: 'Suite Double A', price: 950, charges: 150, size: '16m²', available: 'Indefinite', status: 'occupied', features: '2nd floor, Dual windows', images: ['/images/limpertsberg-house-room22.jpg'] },
-      { id: 'h-r7', name: 'Suite Double B', price: 950, charges: 150, size: '16m²', available: '2026-05-16', status: 'available', features: '2nd floor, Dual windows', images: ['/images/limpertsberg-house-room22.jpg'] },
-      { id: 'h-r8', name: 'Standard Double E', price: 850, charges: 150, size: '14m²', available: 'Indefinite', status: 'occupied', features: '2nd floor, Skylight window', images: ['/images/limpertsberg-house-room23.JPG'] },
-      { id: 'h-r9', name: 'Standard Double F', price: 850, charges: 150, size: '14m²', available: 'Indefinite', status: 'occupied', features: '2nd floor, Skylight window', images: ['/images/limpertsberg-house-room23.JPG'] }
+      { id: 'h-r2', name: 'Deluxe Double A', price: 900, charges: 150, size: '15m²', aavailable: '2026-06-01', status: 'available', features: 'Ground floor', images: ['/images/limpertsberg-house-room10.JPG','/images/limpertsberg-house-room10-2.JPG'] },
+      { id: 'h-r3', name: 'Standard Double B', price: 750, charges: 150, size: '13m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room11.JPG'] },
+      { id: 'h-r4', name: 'Superior Double', price: 850, charges: 150, size: '18m²', available: 'Indefinite', status: 'occupied', features: '1st floor, Dual windows', images: ['/images/dommeldange-room12.JPG','/images/dommeldange-room12-2.JPG'] },
+      { id: 'h-r5', name: 'Standard Double C', price: 750, charges: 150, size: '13m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room10.JPG'] },
+      { id: 'h-r6', name: 'Deluxe Double B', price: 950, charges: 150, size: '16m²', available: 'Indefinite', status: 'occupied', features: '2nd floor, Dual windows', images: ['/images/limpertsberg-house-room22.jpg'] },
+      { id: 'h-r7', name: 'Deluxe Double C', price: 950, charges: 150, size: '16m²', available: '2026-05-16', status: 'available', features: '2nd floor, Dual windows', images: ['/images/limpertsberg-house-room22.jpg'] },
+      { id: 'h-r8', name: 'Standard Double D', price: 850, charges: 150, size: '14m²', available: 'Indefinite', status: 'occupied', features: '2nd floor, Skylight window', images: ['/images/limpertsberg-house-room23.JPG'] },
+      { id: 'h-r9', name: 'Standard Double E', price: 850, charges: 150, size: '14m²', available: 'Indefinite', status: 'occupied', features: '2nd floor, Skylight window', images: ['/images/limpertsberg-house-room23.JPG'] }
     ]
   },
   {
