@@ -73,10 +73,10 @@ export const PROPERTIES = [
     rooms: [
       { id: 'h-r1', name: 'Standard Double A', price: null, charges: null, size: '13m²', available: 'Indefinite', status: 'occupied', features: 'Ground floor, Dedicated WC', images: ['/images/limpertsberg-house-room10.JPG','/images/limpertsberg-house-room10-2.JPG'] },
       { id: 'h-r2', name: 'Standard Double B', price: null, charges: null, size: '13m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room11.JPG','/images/limpertsberg-house-room11-2.JPG'] },
-      { id: 'h-r3', name: 'Suite Double A', price: 1050, charges: 150, size: '16m²', aavailable: 'Indefinite', status: 'occupied', features: '1st floor, Dual windows', images: ['/images/limpertsberg-house-room12.JPG'] },
+      { id: 'h-r3', name: 'Deluxe Double A', price: 1050, charges: 150, size: '16m²', aavailable: 'Indefinite', status: 'occupied', features: '1st floor, Dual windows', images: ['/images/limpertsberg-house-room12.JPG'] },
       { id: 'h-r4', name: 'Mini Double A', price: null, charges: null, size: '11m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room13.jpg','/images/limpertsberg-house-room13-2.jpg'] },
-      { id: 'h-r5', name: 'Suite Double B', price: null, charges: null, size: '15m²', available: 'Indefinite', status: 'occupied', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
-      { id: 'h-r6', name: 'Suite Double C', price: 1050, charges: 150, size: '16m²', available: 'Indefinite', status: 'occupied', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
+      { id: 'h-r5', name: 'Deluxe Double B', price: null, charges: null, size: '15m²', available: 'Indefinite', status: 'occupied', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
+      { id: 'h-r6', name: 'Deluxe Double C', price: 1050, charges: 150, size: '16m²', available: 'Indefinite', status: 'occupied', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
       { id: 'h-r7', name: 'Standard Double C', price: null, charges: null, size: '12.5m²', available: 'Indefinite', status: 'occupied', features: '2nd floor, Skylight window', images: ['/images/limpertsberg-house-room23.JPG'] },
     ]
   },
