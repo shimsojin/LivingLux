@@ -107,7 +107,7 @@ export const PROPERTIES = [
       'Brand-new kitchen to be delivered', 'Dining and Cooking sets', 'Dishwasher', '2 Fridge & Freezer', 'Oven', 'Microwave', 'Air Fryer', 
       'Coffee Machine & Kettle', 'Toaster', 'Iron & Ironing Board', 'Bed Linen Provided'
     ],
-    image: '/images/dommeldange-room02.jpg?v=2',
+    image: '/images/dommeldange-room02.jpg',
     images: [
       '/images/dommeldange-livingroom.jpg',
       '/images/limpertsberg-house-bath1.jpg',
@@ -116,13 +116,13 @@ export const PROPERTIES = [
       '/images/dommeldange-kitchen1.JPG',
       '/images/dommeldange-kitchen2.JPG',
       '/images/dommeldange-kitchen3.JPG',
-      '/images/dommeldange-corridor.jpg?v=2',
-      '/images/dommeldange-corridor2.jpg?v=2'
+      '/images/dommeldange-corridor.jpg',
+      '/images/dommeldange-corridor2.jpg'
     ],
 
     rooms: [
       { id: 'h-r1', name: 'Standard Double A', price: 900, charges: 200, size: '13m²', available: 'Indefinite', status: 'occupied', features: 'Ground floor', images: ['/images/dommeldange-room01.JPG'] },
-      { id: 'h-r2', name: 'Deluxe Double A', price: 950, charges: 200, size: '15m²', available: '2026-05-01', status: 'available', features: 'Ground floor', images: ['/images/dommeldange-room02.jpg?v=2'] },
+      { id: 'h-r2', name: 'Deluxe Double A', price: 950, charges: 200, size: '15m²', available: '2026-05-01', status: 'available', features: 'Ground floor', images: ['/images/dommeldange-room02.jpg'] },
       { id: 'h-r3', name: 'Standard Double B', price: 950, charges: 200, size: '13m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room11.JPG'] },
       { id: 'h-r4', name: 'Superior Double', price: 1000, charges: 200, size: '18m²', available: 'Indefinite', status: 'occupied', features: '1st floor, Dual windows', images: ['/images/dommeldange-room12.JPG','/images/dommeldange-room12-2.JPG'] },
       { id: 'h-r5', name: 'Standard Double C', price: 950, charges: 200, size: '13m²', available: '2026-06-01', status: 'available', features: '1st floor', images: ['/images/limpertsberg-house-room10.JPG','/images/dommeldange-room13.jpg'] },
