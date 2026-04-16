@@ -30,8 +30,8 @@ export const GARAGES = [
   { id: 'g1', name: 'High-ceiling box garage', location: 'Limpertsberg, Luxembourg City', price: 350, status: 'rented', size: '20m²', type: 'Box garage', utilitiesConnected: true, image: '/images/limpertsberg-house-garage.jpg' },
   { id: 'g2', name: 'Box garage', location: 'Limpertsberg, Luxembourg City', price: 300, status: 'rented', size: '18m²', type: 'Box garage', utilitiesConnected: true, image: '/images/limpertsberg-apt-garage.JPG' },
   { id: 'g3', name: 'High-ceiling box garage', location: 'Dommeldange Gare, Luxembourg City', price: 350, status: 'available', size: '20m²', type: 'Box garage', utilitiesConnected: true, image: '/images/dommeldange-garage.JPG' },
-  { id: 'g4', name: 'Underground parking lot', location: 'Bertrange, Luxembourg', price: 100, status: 'rented', size: '13m²', type: 'Indoor', utilitiesConnected: false, image: '/images/bertrange-apt-garage-indoor.JPG' },
-  { id: 'g5', name: 'Private outdoor parking lot', location: 'Bertrange, Luxembourg', price: 75, status: 'rented', size: '18m²', type: 'Outdoor', utilitiesConnected: false, image: '/images/bertrange-apt-garage-outdoor.JPG' },
+  { id: 'g4', name: 'Underground parking lot', location: 'Bertrange, Luxembourg', price: 100, status: 'rented', size: '13m²', type: 'Indoor', utilitiesConnected: false, image: '/images/bertrange-garage-indoor.JPG' },
+  { id: 'g5', name: 'Private outdoor parking lot', location: 'Bertrange, Luxembourg', price: 75, status: 'rented', size: '18m²', type: 'Outdoor', utilitiesConnected: false, image: '/images/bertrange-parkinglot.JPG' },
 ];
 
 export const PROPERTIES = [
@@ -156,10 +156,16 @@ export const PROPERTIES = [
       'Smart lighting', 'Smart heating system', 'Electronic shutters', 'Washing Machine & Dryer', 'High-end kitchen', 
       'Oven', 'Microwave', 'Dining and Cooking sets', 'Dishwasher', 'Large Fridge & Freezer', 'Coffee Machine & Toaster', 'Bed Linen Provided'
     ],
-    image: '/images/bertrange-apt-room2.jpg',
+    image: '/images/bertrange-dining.jpg',
     images: [
-      '/images/bertrange-apt-main.jpg',
-      '/images/bertrange-apt-main2.jpg',
+      '/images/bertrange-dining.jpg',
+      '/images/bertrange-living.jpg',
+      '/images/bertrange-living2.jpg',
+      '/images/bertrange-kitchen.jpg',
+      '/images/bertrange-kitchen2.jpg',
+      '/images/bertrange-bath.jpg',
+      '/images/bertrange-wc.jpg',
+      '/images/bertrange-balcony.jpg',
       '/images/bertrange-apt-balcony.jpeg',
       '/images/bertrange-apt-garden.jpeg',
       '/images/bertrange-apt-corridor1.jpg',
@@ -167,8 +173,8 @@ export const PROPERTIES = [
     ],
     rooms: [
       { id: 'b-r1', name: 'Bright double room A', price: null, charges: null, size: '10m²', available: 'Indefinite', status: 'occupied', features: 'Street view', images: ['/images/bertrange-apt-room1.jpeg'] },
-      { id: 'b-r2', name: 'Bright double room B', price: null, charges: null, size: '10m²', available: 'Indefinite', status: 'occupied', features: 'Street view', images: ['/images/bertrange-apt-room2.jpg'] },
-      { id: 'b-r3', name: 'Cosy double room', price: null, charges: null, size: '13m²', available: 'Indefinite', status: 'occupied', features: 'Street view', images: ['/images/bertrange-apt-room3.jpg'] },
+      { id: 'b-r2', name: 'Bright double room B', price: null, charges: null, size: '10m²', available: 'Indefinite', status: 'occupied', features: 'Street view', images: ['/images/bertrange-room2.jpg'] },
+      { id: 'b-r3', name: 'Cosy double room', price: null, charges: null, size: '13m²', available: 'Indefinite', status: 'occupied', features: 'Street view', images: ['/images/bertrange-room3.jpg'] },
     ]
   },
   {
