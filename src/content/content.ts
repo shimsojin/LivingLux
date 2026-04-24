@@ -120,7 +120,7 @@ export const PROPERTIES = [
     ],
 
     rooms: [
-      { id: 'h-r1', name: 'Standard Double A', price: 900, charges: 200, size: '13m²', available: '2026-06-01', status: 'available', features: 'Ground floor', images: ['/images/dommeldange-room01.JPG'] },
+      { id: 'h-r1', name: 'Standard Double A', price: 900, charges: 200, size: '13m²', available: '2026-05-16', status: 'available', features: 'Ground floor', images: ['/images/dommeldange-room01.JPG'] },
       { id: 'h-r2', name: 'Deluxe Double A', price: 950, charges: 200, size: '15m²', available: 'Indefinite', status: 'occupied', features: 'Ground floor', images: ['/images/dommeldange-room02.jpg'] },
       { id: 'h-r3', name: 'Standard Double B', price: 950, charges: 200, size: '13m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room11.JPG'] },
       { id: 'h-r4', name: 'Superior Double', price: 1000, charges: 200, size: '18m²', available: '2026-06-01', status: 'available', features: '1st floor, Dual windows', images: ['/images/dommeldange-room12.JPG','/images/dommeldange-room12-2.JPG'] },
