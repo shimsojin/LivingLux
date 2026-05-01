@@ -509,12 +509,10 @@ const RoomCard = ({ room, property, onApply, onImageClick }) => {
             {isAvailable ? (
               <>
                 <div>
-                  <span className="font-bold text-emerald-600 text-xl">€{room.price}</span>
+                  <span className="font-bold text-emerald-600 text-xl">€{(room.price || 0) + (room.charges || 0)}</span>
                   <span className="text-xs text-slate-400 ml-1">/month</span>
                 </div>
-                {room.charges && (
-                  <div className="text-xs text-slate-500 font-medium mt-0.5">+ €{room.charges} charges</div>
-                )}
+                <div className="text-xs text-slate-500 font-medium mt-0.5">including charges</div>
               </>
             ) : (
               <div className="font-bold text-slate-400 text-lg">Rented</div>
