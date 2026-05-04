@@ -114,9 +114,11 @@ export const PROPERTIES = [
       '/images/dommeldange-kitchen.jpg',
       '/images/dommeldange-kitchen1.JPG',
       '/images/dommeldange-kitchen2.JPG',
+      '/images/dommeldange-balcony.jpg',
       '/images/dommeldange-livingroom.jpg',
       '/images/dommeldange-corridor.jpg',
-      '/images/dommeldange-corridor2.jpg'
+      '/images/dommeldange-corridor2.jpg',
+      '/images/dommeldange-corridor3.jpg'
     ],
 
     rooms: [
