@@ -30,8 +30,8 @@ export const GARAGES = [
   { id: 'g1', name: 'High-ceiling box garage', location: 'Limpertsberg, Luxembourg City', price: 350, status: 'rented', size: '20m²', type: 'Box garage', utilitiesConnected: true, image: '/images/limpertsberg-house-garage.jpg' },
   { id: 'g2', name: 'Box garage', location: 'Limpertsberg, Luxembourg City', price: 300, status: 'rented', size: '18m²', type: 'Box garage', utilitiesConnected: true, image: '/images/limpertsberg-apt-garage.JPG' },
   { id: 'g3', name: 'High-ceiling box garage', location: 'Dommeldange Gare, Luxembourg City', price: 350, status: 'available', size: '20m²', type: 'Box garage', utilitiesConnected: true, image: '/images/dommeldange-garage.JPG' },
-  { id: 'g4', name: 'Underground parking lot', location: 'Bertrange, Luxembourg', price: 100, status: 'rented', size: '13m²', type: 'Indoor', utilitiesConnected: false, image: '/images/bertrange-garage-indoor.JPG' },
-  { id: 'g5', name: 'Private outdoor parking lot', location: 'Bertrange, Luxembourg', price: 75, status: 'rented', size: '18m²', type: 'Outdoor', utilitiesConnected: false, image: '/images/bertrange-parkinglot.JPG' },
+  { id: 'g4', name: 'Underground parking lot', location: 'Bertrange, Luxembourg', price: 100, status: 'rented', size: '13m²', type: 'Indoor', utilitiesConnected: false, image: '/images/bertrange-apt-garage-indoor.JPG' },
+  { id: 'g5', name: 'Private outdoor parking lot', location: 'Bertrange, Luxembourg', price: 75, status: 'rented', size: '18m²', type: 'Outdoor', utilitiesConnected: false, image: '/images/bertrange-parkinglot.jpg' },
 ];
 
 export const PROPERTIES = [
@@ -63,7 +63,7 @@ export const PROPERTIES = [
     images: [
       '/images/limpertsberg-house-main.jpg',
       '/images/limpertsberg-house-living.jpeg',
-      '/images/limpertsberg-house-kitchen.JPG',
+      '/images/limpertsberg-house-kitchen.jpg',
       '/images/limpertsberg-house-bath1.jpg',
       '/images/limpertsberg-house-bath2.jpg',
       '/images/limpertsberg-house-bath3.JPG',
@@ -128,7 +128,7 @@ export const PROPERTIES = [
       { id: 'h-r4', name: 'Superior Double', price: 1050, charges: 200, size: '18m²', available: '2026-07-16', status: 'available', features: '1st floor, Dual windows', images: ['/images/dommeldange-room12.JPG','/images/dommeldange-room12-2.JPG'] },
       { id: 'h-r5', name: 'Standard Double C', price: 950, charges: 200, size: '13m²', available: 'Indefinite', status: 'occupied',  features: '1st floor', images: ['/images/limpertsberg-house-room10.JPG','/images/dommeldange-room13.jpg'] },
       { id: 'h-r6', name: 'Deluxe Double B', price: 930, charges: 200, size: '17m²', available: 'Indefinite', status: 'occupied', features: '2nd floor, Dual windows', images: ['/images/limpertsberg-house-room22.jpg','/images/dommeldange-room24.jpg'] },
-      { id: 'h-r7', name: 'Deluxe Double C', price: 950, charges: 200, size: '13m²', available: '2026-07-01', status: 'available', features: '2nd floor, Dual windows', images: ['/images/ldommeldange-room22.jpg'] },
+      { id: 'h-r7', name: 'Deluxe Double C', price: 950, charges: 200, size: '13m²', available: '2026-07-01', status: 'available', features: '2nd floor, Dual windows', images: ['/images/dommeldange-room22.jpg'] },
       { id: 'h-r8', name: 'Standard Double D', price: 900, charges: 200, size: '12m²', available: 'Indefinite', status: 'occupied',features: '2nd floor, Panoramic skylight window', images: ['/images/dommeldange-room23.jpg'] },
       { id: 'h-r9', name: 'Standard Double E', price: 850, charges: 200, size: '13m²', available: 'Indefinite', status: 'occupied',features: '2nd floor, Panoramic skylight window', images: ['/images/limpertsberg-house-room23.JPG','/images/dommeldange-room24.jpg'] }
     ]
