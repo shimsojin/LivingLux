@@ -107,7 +107,7 @@ export const PROPERTIES = [
       'Brand-new kitchen to be delivered', 'Dining and Cooking sets', 'Dishwasher', '2 Fridge & Freezer', 'Oven', 'Microwave', 'Air Fryer', 
       'Coffee Machine & Kettle', 'Toaster', 'Iron & Ironing Board', 'Bed Linen Provided'
     ],
-    image: '/images/dommeldange-room02.jpg',
+    image: '/images/dommeldange-room22.jpg',
     images: [
       '/images/limpertsberg-house-bath1.jpg',
       '/images/limpertsberg-house-bath2.jpg',
