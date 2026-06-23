@@ -67,6 +67,17 @@ const getAvailabilitySummary = (rooms) => {
   };
 };
 
+const getRoomAvailableTime = (room) => {
+  if (room.status !== 'available') return Number.POSITIVE_INFINITY;
+
+  const availableTime = new Date(room.available).getTime();
+  return Number.isNaN(availableTime) ? Number.POSITIVE_INFINITY : availableTime;
+};
+
+const sortRoomsByAvailability = (a, b) => {
+  return getRoomAvailableTime(a) - getRoomAvailableTime(b);
+};
+
 // --- Helper to Generate Move-in Dates (1st & 16th) ---
 const getMoveInOptions = () => {
   const options = [];
@@ -792,11 +803,7 @@ export default function App() {
                   <div className="grid md:grid-cols-2 gap-6">
                     {selectedProperty.rooms
                       .slice()
-                      .sort((a, b) => {
-                        const aAvail = a.status === 'available' ? 0 : 1;
-                        const bAvail = b.status === 'available' ? 0 : 1;
-                        return aAvail - bAvail;
-                      })
+                      .sort(sortRoomsByAvailability)
                       .map(room => (
                       <RoomCard 
                         key={room.id} 
