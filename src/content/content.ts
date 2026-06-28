@@ -76,7 +76,7 @@ export const PROPERTIES = [
       { id: 'h-r3', name: 'Superior Double A', price: 1050, charges: 150, size: '16m²', available: 'Indefinite', status: 'occupied', features: '1st floor, Dual windows', images: ['/images/limpertsberg-house-room12.JPG'] },
       { id: 'h-r4', name: 'Mini Double A', price: 950, charges: 150, size: '11m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room13.jpg','/images/limpertsberg-house-room13-2.jpg'] },
       { id: 'h-r5', name: 'Deluxe Double A', price: 1050, charges: 150, size: '15m²', available: '2026-08-01', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
-      { id: 'h-r6', name: 'Deluxe Double B', price: 1050, charges: 150, size: '16m²', available: '2026-08-01', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
+      { id: 'h-r6', name: 'Deluxe Double B', price: 1100, charges: 150, size: '16m²', available: '2026-08-01', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
       { id: 'h-r7', name: 'Standard Double C', price: 1000, charges: 150, size: '12.5m²', available: '2026-08-01', status: 'available', features: '2nd floor, Skylight window', images: ['/images/limpertsberg-house-room23.JPG'] },
     ]
   },
@@ -122,8 +122,8 @@ export const PROPERTIES = [
     rooms: [
       { id: 'h-r1', name: 'Standard Double A', price: 850, charges: 200, size: '13m²', available: 'Indefinite', status: 'occupied', features: 'Ground floor', images: ['/images/dommeldange-room01.jpg'] },
       { id: 'h-r2', name: 'Deluxe Double A', price: 950, charges: 200, size: '15m²', available: 'Indefinite', status: 'occupied', features: 'Ground floor', images: ['/images/dommeldange-room02.jpg'] },
-      { id: 'h-r3', name: 'Standard Double B', price: 950, charges: 150, size: '13m²', available: '2026-09-01', status: 'available', features: '1st floor', images: ['/images/dommeldange-room11.png','/images/dommeldange-room11-2.png'] },
-      { id: 'h-r4', name: 'Superior Double', price: 900, charges: 150, size: '18m²', available: '2026-08-01', status: 'available', features: '1st floor, Dual windows', images: ['/images/dommeldange-room12.JPG','/images/dommeldange-room12-2.JPG'] },
+      { id: 'h-r3', name: 'Standard Double B', price: 1000, charges: 150, size: '13m²', available: '2026-09-01', status: 'available', features: '1st floor', images: ['/images/dommeldange-room11.png','/images/dommeldange-room11-2.png'] },
+      { id: 'h-r4', name: 'Superior Double', price: 1050, charges: 150, size: '18m²', available: '2026-08-01', status: 'available', features: '1st floor, Dual windows', images: ['/images/dommeldange-room12.JPG','/images/dommeldange-room12-2.JPG'] },
       { id: 'h-r5', name: 'Standard Double C', price: 950, charges: 150, size: '13m²', available: '2026-09-01', status: 'available',  features: '1st floor', images: ['/images/dommeldange-room11.png','/images/dommeldange-room11-2.png'] },
       { id: 'h-r6', name: 'Deluxe Double B', price: 930, charges: 200, size: '17m²', available: 'Indefinite', status: 'occupied', features: '2nd floor, Dual windows', images: ['/images/dommeldange-room21.jpeg','/images/dommeldange-room21-2.png'] },
       { id: 'h-r7', name: 'Deluxe Double C', price: 950, charges: 200, size: '15m²', available: '2026-07-01', status: 'available', features: '2nd floor, Dual windows', images: ['/images/dommeldange-room22.jpg'] },
