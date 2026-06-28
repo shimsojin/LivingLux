@@ -72,8 +72,8 @@ export const PROPERTIES = [
     ],
     rooms: [
       { id: 'h-r1', name: 'Standard Double A', price: 1000, charges: 150, size: '13m²', available: 'Indefinite', status: 'occupied', features: 'Ground floor', images: ['/images/limpertsberg-house-room10.JPG','/images/limpertsberg-house-room10-2.JPG'] },
-      { id: 'h-r2', name: 'Standard Double B', price: 1000, charges: 150, size: '13m²', available: '2026-08-01', status: 'available', features: '1st floor', images: ['/images/limpertsberg-house-room11.JPG','/images/limpertsberg-house-room11-2.JPG'] },
-      { id: 'h-r3', name: 'Superior Double A', price: 1050, charges: 150, size: '16m²', available: '2026-08-01', status: 'available', features: '1st floor, Dual windows', images: ['/images/limpertsberg-house-room12.JPG'] },
+      { id: 'h-r2', name: 'Standard Double B', price: 1000, charges: 150, size: '13m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room11.JPG','/images/limpertsberg-house-room11-2.JPG'] },
+      { id: 'h-r3', name: 'Superior Double A', price: 1050, charges: 150, size: '16m²', available: 'Indefinite', status: 'occupied', features: '1st floor, Dual windows', images: ['/images/limpertsberg-house-room12.JPG'] },
       { id: 'h-r4', name: 'Mini Double A', price: 950, charges: 150, size: '11m²', available: 'Indefinite', status: 'occupied', features: '1st floor', images: ['/images/limpertsberg-house-room13.jpg','/images/limpertsberg-house-room13-2.jpg'] },
       { id: 'h-r5', name: 'Deluxe Double A', price: 1050, charges: 150, size: '15m²', available: '2026-08-01', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
       { id: 'h-r6', name: 'Deluxe Double B', price: 1050, charges: 150, size: '16m²', available: '2026-08-01', status: 'available', features: '2nd floor', images: ['/images/limpertsberg-house-room22.jpg'] },
