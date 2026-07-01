@@ -109,8 +109,8 @@ export const PROPERTIES = [
     ],
     image: '/images/dommeldange-room22.jpg',
     images: [
+      '/images/dommeldange-bath.jpeg',
       '/images/dommeldange-bath1.png',
-      '/images/dommeldange-bath2.JPG',
       '/images/dommeldange-kitchen1.JPG',
       '/images/dommeldange-kitchen2.JPG',
       '/images/dommeldange-balcony.jpg',
